@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let diem_vatly;
+  let diem_toan;
+  let diem_hoa;
+  diem_vatly = prompt("Điểm Vật lý ")
+  diem_toan = prompt("Điểm Toán ")
+  diem_hoa = prompt("Điểm Hóa ")
+  let ly = parseInt(diem_vatly)
+  let toan = parseInt(diem_toan)
+  let hoa = parseInt(diem_hoa)
+  let diem_trung_binh = (ly+hoa+toan) / 3;
+  let Tong = ly + toan + hoa
+  document.write("Điểm trung bình là : "+ diem_trung_binh);
+  document.write('<br/>');
+  document.write("Điểm tổng các môn là : "+ Tong);
+</script>
+</body>
+</html>

@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Lesson5_Javascript_html.iml" filepath="$PROJECT_DIR$/.idea/Lesson5_Javascript_html.iml" />
+<<<<<<< HEAD
+<<<<<<< HEAD
+      <module fileurl="file://$PROJECT_DIR$/.idea/lesson4_git_html.iml" filepath="$PROJECT_DIR$/.idea/lesson4_git_html.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/Lesson6_Javascript_html.iml" filepath="$PROJECT_DIR$/.idea/Lesson6_Javascript_html.iml" />
+>>>>>>> f931eb8 (4)
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/Lesson6_Javascript_html.iml" filepath="$PROJECT_DIR$/.idea/Lesson6_Javascript_html.iml" />
+>>>>>>> d999d2e4599df78ddd2faaa958ce36aec7ce4e15
     </modules>
   </component>
 </project>
