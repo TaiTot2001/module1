@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lịch Tháng 10</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .calendar {
+            width: 60%;
+            margin: auto;
+            border-collapse: collapse;
+        }
+        th {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+            background-color: yellow;
+        }
+        td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+            position: relative;
+            background-color: white;
+        }
+        .sunday {
+            color: red;
+        }
+        .saturday {
+            color: blue;
+        }
+        .lich_am {
+            font-size: 10px;
+            color: gray;
+            position: absolute;
+            bottom: 2px;
+            right: 5px;
+        }
+        .sunday .lunar, .saturday .lunar {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+<h2>Tháng 10 - October</h2>
+<table class="calendar">
+    <tr>
+        <th class="sunday">C.Nhật</th>
+        <th>T.Hai</th>
+        <th>T.Ba</th>
+        <th>T.Tư</th>
+        <th>T.Năm</th>
+        <th>T.Sáu</th>
+        <th class="saturday">T.Bảy</th>
+    </tr>
+    <tr>
+        <td class="sunday">Sun</td>
+        <td>Mon</td>
+        <td>Tue</td>
+        <td>Wed</td>
+        <td>Thu</td>
+        <td>Fri</td>
+        <td class="saturday">Sat</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>1<sub class="lunar">13</sub></td>
+        <td>2<sub class="lunar">14</sub></td>
+        <td class="saturday">3<sub class="lunar">15</sub></td>
+    </tr>
+    <tr>
+        <td class="sunday">4<sub class="lunar">16</sub></td>
+        <td>5<sub class="lunar">17</sub></td>
+        <td>6<sub class="lunar">18</sub></td>
+        <td>7<sub class="lunar">19</sub></td>
+        <td>8<sub class="lunar">20</sub></td>
+        <td>9<sub class="lunar">21</sub></td>
+        <td class="saturday">10<sub class="lunar">22</sub></td>
+    </tr>
+    <tr>
+        <td class="sunday">11<sub class="lunar">23</sub></td>
+        <td>12<sub class="lunar">24</sub></td>
+        <td>13<sub class="lunar">25</sub></td>
+        <td>14<sub class="lunar">26</sub></td>
+        <td>15<sub class="lunar">27</sub></td>
+        <td>16<sub class="lunar">28</sub></td>
+        <td class="saturday">17<sub class="lunar">29</sub></td>
+    </tr>
+    <tr>
+        <td class="sunday">18<sub class="lunar">1.9</sub></td>
+        <td>19<sub class="lunar">2</sub></td>
+        <td>20<sub class="lunar">3</sub></td>
+        <td>21<sub class="lunar">4</sub></td>
+        <td>22<sub class="lunar">5</sub></td>
+        <td>23<sub class="lunar">6</sub></td>
+        <td class="saturday">24<sub class="lunar">7</sub></td>
+    </tr>
+    <tr>
+        <td class="sunday">25<sub class="lunar">8</sub></td>
+        <td>26<sub class="lunar">9</sub></td>
+        <td>27<sub class="lunar">10</sub></td>
+        <td>28<sub class="lunar">11</sub></td>
+        <td>29<sub class="lunar">12</sub></td>
+        <td>30<sub class="lunar">13</sub></td>
+        <td class="saturday">31<sub class="lunar">14</sub></td>
+    </tr>
+</table>
+</body>
+</html>
