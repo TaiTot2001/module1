@@ -9,17 +9,17 @@
   let diem_vatly;
   let diem_toan;
   let diem_hoa;
-  diem_vatly = prompt("Điểm Vật lý ")
-  diem_toan = prompt("Điểm Toán ")
-  diem_hoa = prompt("Điểm Hóa ")
-  let ly = parseFloat(diem_vatly)
-  let toan = parseFloat(diem_toan)
-  let hoa = parseFloat(diem_hoa)
+  // diem_vatly = prompt("Điểm Vật lý ")
+  // diem_toan = prompt("Điểm Toán ")
+  // diem_hoa = prompt("Điểm Hóa ")
+  let ly = parseFloat(prompt("diem_vatly"))
+  let toan = parseFloat(prompt("diem_toan"))
+  let hoa = parseFloat(prompt("diem_hoa"))
   let diem_trung_binh = (ly+hoa+toan) / 3;
-  let Tong = ly + toan + hoa
-  document.write("Điểm trung bình là : "+ diem_trung_binh);
+  let Tong = ly + toan + hoa;
+  document.write("Điểm trung bình các môn học là : "+ diem_trung_binh);
   document.write('<br/>');
-  document.write("Điểm tổng các môn là : "+ Tong);
+  document.write("Điểm tổng các môn học là : "+ Tong);
 </script>
 </body>
 </html>
