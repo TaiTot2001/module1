@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<h1>Caculator</h1>
+<body>
+<input type="text" id="sodautien" placeholder="Nhập số đầu tiên">
+<input type="text" id="sothuhai" placeholder="Nhập số thứ hai">
+<button onclick="cong()">Cộng</button>
+<button onclick="tru()">Trừ</button>
+<script>
+  function cong() {
+    let sodautien = document.getElementById("sodautien").value;
+    let sothuhai = document.getElementById("sothuhai").value;
+    let congtong;
+    congtong = Number(sodautien) + Number(sothuhai);
+    document.getElementById("congtong").innerHTML= congtong;
+
+  }
+  function tru() {
+    let sodautien = document.getElementById("sodautien").value;
+    let sothuhai = document.getElementById("sothuhai").value;
+    let congtong;
+    congtong = Number(sodautien) - Number(sothuhai);
+    document.getElementById("congtong").innerHTML= congtong;
+
+  }
+
+</script>
+</body>
+<h3>Result :</h3>
+<p id="congtong"></p>
+</html>
