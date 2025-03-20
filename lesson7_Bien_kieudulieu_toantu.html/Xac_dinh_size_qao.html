@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const kg = parseInt(prompt("Nhập cân nặng"))
+    console.log(kg)
+    if (kg < 50) {
+        document.write("Size S");}
+
+    else if ( kg >= 50 && kg <= 65) {
+            document.write("Size M")
+        }
+    else if ( kg >= 66 && kg <= 80) {
+            document.write("Size L")
+        }
+    else if ( kg > 80) {
+            document.write("Size XL")
+        }
+    if (isNaN(kg)){
+        document.write("Lỗi......: Hãy nhập số !!!!!!!!!")
+    }
+
+</script>
+</body>
+</html>
