@@ -7,9 +7,10 @@
 <body>
 <script>
     let number = +prompt("Nhập chiều dài 1 cạnh hình vuông (m)")
-    if (isNaN(number)) {
-        alert("Vui lòng nhập dạng số !!")
-    } else {
+    if (isNaN(number) || number <= 0) {
+        alert("Vui lòng nhập vào một số hợp lệ và lớn hơn 0 !!")
+    }
+    else {
         let area = number * number;
         alert("Diện tích hình vuông là : " + area + " m²")
     }

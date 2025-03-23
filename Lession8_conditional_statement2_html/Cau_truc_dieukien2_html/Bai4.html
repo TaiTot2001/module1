@@ -7,10 +7,13 @@
 <body>
 <script>
     let chieudai = +prompt("Chieu dai (m)");
-    let rong = +prompt("Chieu rong (m)");
-    let S = chieudai * rong;
-
-    document.write("Diện tích hình chữ nhật là: " + S + "m²");
+    let chieurong = +prompt("Chieu rong (m)");
+    if (isNaN(chieurong) && isNaN(chieudai) || chieurong <= 0 || chieudai <= 0) {
+        alert("Vui lòng nhập một số hợp lệ và lớn hơn 0 !");
+    } else {
+        let S = chieudai * chieurong;
+        alert("Diện tích hình chữ nhật là: " + S + " m²");
+    }
 </script>
 </body>
 </html>
