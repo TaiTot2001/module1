@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển từ độ C sang độ F</title>
+</head>
+<body>
+<script>
+    let number = +prompt("Nhập nhiệt độ °C: ")
+    if (isNaN(number)) {
+        alert("Vui lòng nhập một số hợp lệ !")
+    } else {
+        let do_F = (number * 9 / 5) + 32;
+        alert("Nhiệt độ cần đồi: " + number + "°C =" + do_F + "°F");
+    }
+</script>
+</body>
+</html>
