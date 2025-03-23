@@ -6,9 +6,27 @@
 </head>
 <body>
 <script>
-  let number_1 = parseInt(prompt("Nhập vào số thứ nhất"));
-  let number_2 = parseInt(prompt("Nhập vào số thứ hai"));
-  let number_3 = parseInt(prompt("Nhập vào số thứ ba"));
+    let number_1 = parseInt(prompt("Nhập vào số thứ nhất"));
+    let number_2 = parseInt(prompt("Nhập vào số thứ hai"));
+    let number_3 = parseInt(prompt("Nhập vào số thứ ba"));
+    if (isNaN(number_1) || isNaN(number_2) || isNaN(number_3)) {
+        alert("Vui lòng nhập đúng 3 số nguyên")
+    } else if (number_1 === number_2 && number_2 === number_3) {
+        alert("cả ba số bằng nhau")
+    } else if (number_1 >= number_2) {
+        if (number_1 >= number_3) {
+            alert(number_1 + " Là số lớn nhất")
+        } else {
+            alert(number_3 + " Là sô lớn nhất")
+        }
+
+    } else {
+        if (number_2 >= number_3) {
+            alert(number_2 + " Là số lớn nhất")
+        } else {
+            alert(number_3 + " Là số lớn nhất")
+        }
+    }
 
 </script>
 </body>
