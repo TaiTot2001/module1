@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trò chơi ghép hình</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        img {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+        }
+        .message {
+            font-size: 20px;
+            color: green;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <td><img id="tile0" onclick="toggleTile(0)"></td>
+        <td><img id="tile1" onclick="toggleTile(1)"></td>
+    </tr>
+    <tr>
+        <td><img id="tile2" onclick="toggleTile(2)"></td>
+        <td><img id="tile3" onclick="toggleTile(3)"></td>
+    </tr>
+</table>
+<div class="message" id="message"></div>
+<button onclick="resetGame()">Chơi lại</button>
+
+<script>
+    const images = [
+        ["img1a.jpg", "img1b.jpg"],
+        ["img2a.jpg", "img2b.jpg"],
+        ["img3a.jpg", "img3b.jpg"],
+        ["img4a.jpg", "img4b.jpg"]
+    ];
+
+    let tiles = [0, 0, 0, 0];
+    const correctState = [1, 1, 1, 1];
+
+    function createGrid() {
+        tiles.forEach((state, index) => {
+            document.getElementById("tile" + index).src = images[index][state];
+        });
+    }
+
+    function toggleTile(index) {
+        tiles[index] = tiles[index] === 0 ? 1 : 0;
+        createGrid();
+        checkWin();
+    }
+
+    function checkWin() {
+        if (JSON.stringify(tiles) === JSON.stringify(correctState)) {
+            document.getElementById("message").innerText = "🎉 Chúc mừng! Bạn đã hoàn thành! 🎉";
+        } else {
+            document.getElementById("message").innerText = "";
+        }
+    }
+
+    function resetGame() {
+        tiles = [0, 0, 0, 0];
+        createGrid();
+        document.getElementById("message").innerText = "";
+    }
+
+    createGrid();
+</script>
+</body>
+</html>
