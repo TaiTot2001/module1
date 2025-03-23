@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nhập một số nguyên bất kỳ, in ra kết quả để xác định số đó lớn hơn, nhỏ hơn hay bằng 0</title>
+</head>
+<body>
+<script>
+    let number = +prompt("Nhập vào một số nguyên bất kì")
+    if (isNaN(number)) {
+        alert(`
+        Vui lòng nhập số.
+        Không nhập chữ hay kí tự.
+        `)
+    }
+    else if (number >0) {
+        alert (number +" Là số lớn hơn 0")
+    }
+    else if (number < 0) {
+        alert(number +" Là số nhỏ lớn hơn 0")
+    }
+    else {
+        alert("Số bạn vừa nhập bằng 0")
+    }
+</script>
+</body>
+</html>
