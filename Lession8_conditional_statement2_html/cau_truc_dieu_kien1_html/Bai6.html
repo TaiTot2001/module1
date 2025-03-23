@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Tinh hoa hong</title>
+</head>
+<body>
+
+<script>
+  /*
+  Quy tắc tính hoa hồng:
+Doanh số < 5 triệu → Hoa hồng = 2%
+
+Từ 5 triệu đến < 10 triệu → Hoa hồng = 5%
+
+Từ 10 triệu đến < 20 triệu → Hoa hồng = 10%
+
+Từ 20 triệu trở lên → Hoa hồng = 15%
+   */
+
+  let doanhso = +prompt("Nhập doanh số bán hàng (VNĐ):");
+  if (isNaN(doanhso) || doanhso < 0) {
+    alert("Vui lòng nhập số hợp lệ!");
+  } else {
+    let hoahong;
+    if (doanhso < 5000000) {
+      hoahong = doanhso * 0.02;
+    } else if (doanhso < 10000000) {
+      hoahong = doanhso * 0.05;
+    } else if (doanhso < 20000000) {
+      hoahong = doanhso * 0.10;
+    } else {
+      hoahong = doanhso * 0.15;
+    }
+
+    alert(
+    "Doanh số: " + doanhso.toLocaleString() + "VNĐ\nHoa hồng nhận được: " +hoahong.toLocaleString() +"VNĐ"
+    ) //toLocaleString() giúp định dạng số theo cách dễ đọc hơn (thêm dấu phẩy ngăn cách hàng nghìn).
+  }
+</script>
+
+</body>
+</html>
