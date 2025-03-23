@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xếp loại học lực của học sinh</title>
+</head>
+<body>
+<script>
+    /* bài toán đánh giá năng lực của học sinh được tính bằng cách sau:
+    TH1:Xếp loại giỏi: điểm ktra, Giua, Cuoi đều lớn hơn 8
+    TH2: Xếp loại khá: điểm ktra, Giua, Cuoi đều lớn hơn 6.5
+    Th3: Xếp loại TB: điểm ktra, Giua, Cuoi đều lớn hơn 5
+    TH4:Xếp loại yếu: ktra + giũa+ cuối <12
+     */
+    let kiem_tra = +prompt("Điểm kiểm tra của bạn là :")
+    let giua_ky = +prompt("Điểm kiểm tra giữa kì của bạn là :")
+    let cuoi_ky = +prompt("Điểm kiểm tra cuối kì của bạn là :")
+    let diemtb = (kiem_tra + giua_ky + cuoi_ky)/3
+    if (isNaN(kiem_tra) || isNaN(giua_ky) || isNaN(cuoi_ky) ||
+        kiem_tra < 0 || kiem_tra > 10 || giua_ky < 0 || giua_ky > 10 || cuoi_ky < 0 || cuoi_ky > 10) {
+        alert("Vui lòng nhập điểm hợp lệ (từ 0 đến 10)!");}
+    else if (diemtb >= 8) {
+        alert("Chúc mừng bạn xếp loại học lực Giỏi")
+    }
+    else if (diemtb >= 6.5) {
+        alert("Chúc mừng bạn xếp loại học lực Khá")
+    }
+    else if (diemtb >= 5) {
+        alert("Bạn xếp loại học lực Trung Bình")
+    }
+    else{
+        alert("Thật buồn bạn xếp loại học lực Yếu")
+    }
+</script>
+
+</body>
+</html>
