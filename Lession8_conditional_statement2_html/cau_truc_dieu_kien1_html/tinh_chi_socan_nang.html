@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tinh chi so can nang co the</title>
+</head>
+<body>
+<script>
+    let weight = +prompt("Nhập cân nặng của bạn:  (kg)");
+    let height = +prompt("Nhập chiều cao của bạn:    (m)");
+    let BMI = weight / (height ^ 2)
+    if (BMI < 18.5) {
+        document.write("Underweight");
+    } else if (BMI < 25.0) {
+        document.write("Normal");
+    } else if (BMI < 30.0) {
+        document.write("Overweight");
+    } else {
+        document.write("Obese");
+    }
+
+</script>
+</body>
+</html>
