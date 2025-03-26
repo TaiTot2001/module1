@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giải phương trình bậc 1.</title>
+</head>
+<body>
+<Script>
+  let a = +prompt(`
+  Giải phương trình bậc nhất:  a.x + b = 0
+  Nhập vào số a:
+  `)
+  let b = +prompt("Nhập vào số b:")
+  if (a ===0) {
+    if (b ===0) {
+      alert("Phương trình có vô số nghiệm")
+    }
+    else{
+      alert("Phương trình vô nghiệm")
+    }
+
+  }
+  else{
+    let x = -b/a
+    alert("Phương trình có nghiệm x = "+ x)
+  }
+</Script>
+</body>
+</html>

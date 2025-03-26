@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giải phương trình bậc 2</title>
+</head>
+<body>
+<H1 style="color: red">
+    Giải phương trình bậc 2: ax² + bx + c = 0
+</H1>
+<label for="a" style="color: darkorange">Nhập vào giá trị a:</label>
+<input type="number" id="a"><br><br>
+<label for="b" style="color: darkorange">Nhập vào giá trị b:</label>
+<input type="number" id="b"><br><br>
+<label for="c" style="color: darkorange">Nhập vào giá trị c:</label>
+<input type="number" id="c"><br><br><br>
+<button onclick="giaipt()" style="color: red ; background-color: yellow">Giải phuơng trình</button>
+<h3 id="ketqua" style="color: darkgreen">Hiển thị kết quả</h3>
+<script>
+    function giaipt() {
+        let a = parseFloat(document.getElementById("a").value);
+        let b = parseFloat(document.getElementById("b").value);
+        let c = parseFloat(document.getElementById("c").value);
+        if (a === 0) {
+            if (b === 0) {
+                if (c === 0) {
+                    ketqua = "Phương trình có vô số nghiệm";
+                } else {
+                    ketqua = "Phương trình vô nghiệm";
+                }
+            } else {
+                ketqua = "Phương trình có nghiệm x = " + (-c / b);
+            }
+
+        } else {
+            let delta = b * b - 4 * a * c;
+            if (delta === 0) {
+                let x = -b / (2 * a)
+                ketqua = "Phương trình có nghiệm kép: x = " + x
+            } else if (delta < 0) {
+                ketqua = "Phương trình vô nghiệm"
+            } else {
+                let x1 = (-b + Math.sqrt(delta)) / (2 * a)
+                let x2 = (-b - Math.sqrt(delta)) / (2 * a)
+                ketqua = `
+                Phương trình có hai nghiệm
+                x1= ${x1}
+                x2= ${x2}
+                `
+            }
+        }
+        document.getElementById("ketqua").innerText = ketqua;
+    }
+
+</script>
+</body>
+</html>
