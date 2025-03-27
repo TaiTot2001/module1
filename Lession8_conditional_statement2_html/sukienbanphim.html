@@ -5,23 +5,23 @@
     <title>Sự kiện bàn phím</title>
 </head>
 <body onload="docReady()">
-<img id="nobita" src="https://upload.wikimedia.org/wikipedia/vi/2/2c/Nobita.png" style="position:absolute;left:0; top:0;" height="100" width="80"/>
+<img id="nobita" src="https://upload.wikimedia.org/wikipedia/vi/2/2c/Nobita.png" style="position:relative;left:0; top:0;" height="200" width="180"/>
 <script>
     function upArrowPressed() {
-        let element = document.getElementById("nobita");
-        element.style.top = parseInt(element.style.top) - 5 + 'px';
+        let nobita = document.getElementById("nobita");
+        nobita.style.top = parseInt(nobita.style.top) - 10 + 'px';
     }
     function downArrowPressed() {
-        let element = document.getElementById("nobita");
-        element.style.top = parseInt(element.style.top) + 5 + 'px';
+        let nobita = document.getElementById("nobita");
+        nobita.style.top = parseInt(nobita.style.top) + 10 + 'px';
     }
     function leftArrowPressed() {
-        let element = document.getElementById("nobita");
-        element.style.left = parseInt(element.style.left) - 5 + 'px';
+        let nobita = document.getElementById("nobita");
+        nobita.style.left = parseInt(nobita.style.left) - 10 + 'px';
     }
     function rightArrowPressed() {
-        let element = document.getElementById("nobita");
-        element.style.left = parseInt(element.style.left) + 5 + 'px';
+        let nobita = document.getElementById("nobita");
+        nobita.style.left = parseInt(nobita.style.left) + 10 + 'px';
 
     }
     function moveSelection(evt) {

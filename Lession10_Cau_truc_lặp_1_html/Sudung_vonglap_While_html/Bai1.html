@@ -6,14 +6,17 @@
 </head>
 <body>
 <script>
-    let number = +prompt("Nhập số vào chỗ trống: ")
+    let number;
     let total = 0;
-    while (number !==-1) {
+    do {
         number = +prompt("Nhập số vào chỗ trống: ");
-        alert(number);
+        // alert(number);
         total += number;
     }
-    alert(total);
+    while (number !== 0)
+    {
+        alert("ket thuc chương trình,tổng các số đã nhập vào là : " + total);
+    }
 </script>
 </body>
 </html>
