@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Sử dụng hàm prompt() để lấy thông tin nhiệt độ hiện tại được nhập bởi người truy cập. Nếu nhiệt độ nhập vào trên 100, yêu cầu người dùng giảm nhiệt độ. Nếu nhiệt độ dưới 20, yêu cầu người dùng tăng nhiệt độ.</title>
+</head>
+<body>
+<script>
+  let nhietdo;
+  while  (true){
+    nhietdo = +prompt("Quý khách vui lòng nhập nhiệt độ để kiểm tra")
+    if (isNaN(nhietdo)){
+      alert("Vui lòng nhập nhiệt độ hiện tại bằng dạng số ! \n Cảm ơn bạn!");
+      continue;
+    }
+    if (nhietdo >= 100){
+      alert("Nhiệt độ hiện tại đang quá cao. \nVui lòng giảm nhiệt độ khẩn cấp");
+    }
+    else if (nhietdo <= 20){
+      alert("Nhiệt độ hiện tại đang thấp \nHãy tăng nhiệt độ lên để đảm bảo sức khỏe")
+    }
+    else{
+      alert("Nhiệt độ hiện tại đang ở mức hợp lý! \nCảm ơn bạn đã kiểm tra......")
+      break;
+    }
+  }
+</script>
+</body>
+</html>

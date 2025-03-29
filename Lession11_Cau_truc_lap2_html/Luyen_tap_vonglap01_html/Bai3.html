@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hiển thị ra 20 số trong dãy fibonacci đầu tiên.</title>
+</head>
+<body>
+<script>
+    // function checkFibonacci(number) {
+    let a = 0, b = 1, i
+    let sum
+    let number= +prompt("Bạn muốn hiển thị bao nhiêu số đầu tiên trong dãy fibonacci")
+    for (let i = 0; i < number; i++) {
+        document.write(a + "<br>");
+        sum = a + b;
+        a = b
+        b = sum;
+
+    }
+
+</script>
+</body>
+</html>
