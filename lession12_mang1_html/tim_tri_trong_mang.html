@@ -9,17 +9,24 @@
     let arr = [1, 6, 1, 4, 3, 6, 8, 2, 7];
     let value = Number(prompt("Nhập vào số mà bạn muốn tìm vị trí của nó trong mảng x"))
     let index = []; //khai báo mảng index rỗng
-    for (let i = 0; i < arr.length; i++) {
-        if (value === arr[i]) {
-            index.push(i);  // đẩy tất cả giá trị i tìm được vào mảng: index=[i, i1,....]
-        }
+    if(isNaN(value)){
+        alert("Vui lòng nhập dạng số !!!")
+        throw new Error("Dữ liệu nhập vào không hợp lệ! Chương trình sẽ dừng.")
     }
-    // kiểm tra xem trong mảng index có phần tử nào không.
-    if (index.length > 0)
-    {
-        alert("Value " + value + " found at index " + index.join(" & "));
-    } else {
-        alert("Value " + value + " not found");
+    else{
+
+        for (let i = 0; i < arr.length; i++) {
+            if (value === arr[i]) {
+                index.push(i);  // đẩy tất cả giá trị i tìm được vào mảng: index=[i, i1,....]
+            }
+        }
+        // kiểm tra xem trong mảng index có phần tử nào không.
+        if (index.length > 0)
+        {
+            alert("Value " + value + " found at index " + index.join(" & "));
+        } else {
+            alert("Value " + value + " not found");
+        }
     }
 </script>
 </body>
