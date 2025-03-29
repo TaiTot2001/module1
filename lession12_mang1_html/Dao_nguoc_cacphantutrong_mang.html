@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đảo ngược các phần tử trong mảng</title>
+</head>
+<body>
+<script>
+    let x=[1,2,3,4,5];
+    let sodau=0;
+    let socuoi=x.length-1;
+    for(sodau,socuoi; sodau<socuoi ; sodau++,socuoi-- ){
+        let a=x[sodau];
+        x[sodau]=x[socuoi];
+        x[socuoi]=a;
+    }
+    document.write("x " + " = "+ "["+x+"]");
+</script>
+</body>
+</html>
