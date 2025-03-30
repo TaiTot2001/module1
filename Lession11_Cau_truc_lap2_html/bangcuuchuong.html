@@ -3,28 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Bảng cửu chương</title>
-  <style>
-    table {
-      border-collapse: collapse;
-      text-align: center;
-    }
-    td {
-      border: 2px solid black;
-      padding: 7px;
-    }
-  </style>
+    <style>
+        table {
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        td {
+            border: 2px solid black;
+            padding: 7px;
+        }
+    </style>
 </head>
 <body>
 <table>
-  <script>
-    for (let i = 1; i <=10; i++) {
-      document.write("<tr>");
-      for (let j = 2; j <= 9; j++) {
-        document.write("<td >" + j + " x " + i + " = " + ( j * i ) +"</td>");
-      }
-      document.write("</tr>");
-    }
-  </script>
+    <script>
+        for (let i = 1; i <= 10; i++) {
+            document.write("<tr>");
+            for (let j = 2; j <= 9; j++) {
+                document.write("<td >" + j + " x " + i + " = " + (j * i) + "</td>");
+            }
+            document.write("</tr>");
+        }
+    </script>
 </table>
 
 </body>

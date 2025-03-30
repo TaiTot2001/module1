@@ -6,11 +6,21 @@
 </head>
 <body>
 <script>
-  let a=0,b=1,i,sum;
-  for(i=0;i<=20;i++){
-    document.write(a + "<br>");
-  }
+    let a = 0, b = 1, i, sum;
 
+    function checkfibonacci() {
+        for (i = 0; ; i++) {
+            sum = a + b;
+            if (sum % 5 === 0) {
+                alert("số đầu tiên trong dãy fibonacci chia hết cho 5 là: " + sum)
+                break
+            }
+            a = b;
+            b = sum;
+        }
+    }
+
+    checkfibonacci();
 </script>
 </body>
 </html>
