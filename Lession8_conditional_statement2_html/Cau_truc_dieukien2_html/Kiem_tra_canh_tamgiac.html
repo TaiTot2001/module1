@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra xem 3 số thực (a,b,c) nhập vào có phải là cạnh của một tam giác</title>
+</head>
+<body>
+<script>
+    let a = Number(prompt("Nhập vào cạnh a của tam giác:"))
+    let b = Number(prompt("Nhập vào cạnh b của tam giác:"))
+    let c = Number(prompt("Nhập vào cạnh c của tam giác:"))
+    if (isNaN(a) || isNaN(b) || isNaN(c)) {
+        alert("Vui lòng nhập a, b, c ở dạng số hợp lệ!");
+    } else if (a <= 0 || b <= 0 || c <= 0) {
+        alert("a, b, c phải là số dương!\nVui lòng nhập lại.");
+    } else {
+        if (a + b > c && a + c > b && b + c > a) {
+            alert("Giá trị của a, b, c đủ điều kiện là ba cạnh của một tam giác.");
+        } else {
+            alert("Giá trị của a, b, c không đủ điều kiện là ba cạnh của một tam giác.");
+        }
+    }
+
+</script>
+</body>
+</html>
