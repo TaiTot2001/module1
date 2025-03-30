@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In dãy Fibonaci</title>
+</head>
+<body>
+<script>
+    let a = 0, b = 1, sum = 0;
+    let number = Number(prompt("bạn muốn hiển thị bao nhiêu số đầu tiên trong dãy Fibonaci :"))
+    if (isNaN(number) || number <= 0) {
+        document.write("Vui lòng nhập dạng số khác 0")
+    } else {
+        for (let i = 1; i <= number; i++) {
+            document.write(a + "<br>");
+            sum = a + b;
+            a = b;
+            b = sum;
+        }
+    }
+
+
+</script>
+</body>
+</html>

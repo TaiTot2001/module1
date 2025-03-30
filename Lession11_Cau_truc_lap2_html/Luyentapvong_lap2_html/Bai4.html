@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In hình chu nhật</title>
+</head>
+<body>
+<script>
+    let height = Number(prompt("Chiều cao của HCN:"));
+    let width = Number(prompt("Chiều rộng của HCN:"))
+    let out = "";
+    for (let i = 1; i <= height; i++) {
+        for (let j = 1; j <= width; j++) {
+            if (i === 1 || i === height || j === 1 || j === width) {
+                out += "*&nbsp;&nbsp;&nbsp;"//hiển thị *
+            } else {
+                out += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+            }
+        }
+        out += "<br>"
+    }
+    document.write(out);
+</script>
+</body>
+</html>

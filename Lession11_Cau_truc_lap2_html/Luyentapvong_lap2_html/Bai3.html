@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In tam giác vuông. Các góc vuông nằm ở các vị trí khác nhau</title>
+</head>
+<body>
+<script>
+    let i, j, out = "";
+    let number = Number(prompt("Bạn muốn tam giác có chiều cao bằng bao nhiêu:"));
+    if (isNaN(number) || number <= 0 || !Number.isInteger(number)) {
+        document.write("Vui lòng nhập một số nguyên dương lớn hơn 0 !!! ");
+    }
+    else {
+        for (i = 1; i <= number; i++) {
+            for (j = 1; j <= i; j++) {
+                out += "* "
+            }
+            out += "<br>"
+        }
+        document.write(out + "<br>");
+
+        out = "";
+        for (i = number; 1 <= i; i--) {
+            for (j = 1; j <= i; j++) {
+                out += "* "
+            }
+            out += "<br>"
+        }
+        document.write(out + "<br>");
+
+        out = "";
+        for (i = 1; i <= number; i++) {
+            for (j = 1; j <= number - i; j++) {
+                out += "&nbsp;&nbsp;&nbsp"
+            }
+            for (let k = 1; k <= i; k++) {
+                out += "* "
+            }
+            out += "<br>"
+        }
+        document.write(out + "<br>");
+
+        out = "";
+        for (let i = number; i >= 1; i--) {
+            for (let j = 1; j <= number - i; j++) {
+                out += "&nbsp;&nbsp;&nbsp;";
+            }
+            for (let k = 1; k <= i; k++) {
+                out += "* ";
+            }
+            out += "<br>";
+        }
+        document.write(out);
+    }
+</script>
+</body>
+</html>

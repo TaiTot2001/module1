@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính giai thừa của một số nguyên dương</title>
+</head>
+<body>
+<script>
+  let factorial=1, i;
+  let number = Number(prompt("Bạn muốn tính giai thừa của số nguyên dương nào"))
+  if(isNaN(number) || number < 0 || !Number.isInteger(number)) {
+    document.write(" Vui lòng nhập dạng số lớn hơn bằng 0")
+  }
+  else {
+    for (i = number; i >=1 ; i--) {
+      factorial *= i;
+    }
+    document.write("Đáp án: "+ number+ "! = " +factorial);
+  }
+</script>
+</body>
+</html>
