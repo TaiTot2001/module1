@@ -5,6 +5,25 @@
     <title> Kiểm tra xem một số nhập vào có phải là tuổi của một người không</title>
 </head>
 <body>
+<h2>
+    Kiểm tra có phải tuổi của một người
+</h2>
+<input type="number" id="number" placeholder="Tuổi của bạn"><br><br>
+<button id="kiemtra" onclick="kiemtra()">Kiểm Tra</button>
+<br>
+<p id="ketqua"></p>
+<script>
 
+    function kiemtra() {
+        let number = document.getElementById("number").value;
+        let ketqua;
+        if (0 < number &&  number <= 120) {
+            ketqua = "Tuổi " + number + " là tuổi của một người";
+        } else {
+            ketqua = "Tuổi " + number + " bạn vừa kiểm tra không phải là tuổi của một người"
+        }
+        document.getElementById("ketqua").innerHTML = ketqua;
+    }
+</script>
 </body>
 </html>
