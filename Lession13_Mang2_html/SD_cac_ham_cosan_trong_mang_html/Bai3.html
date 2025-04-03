@@ -7,8 +7,8 @@
 <body>
 <script>
     let text = prompt("Nhập vào dòng chữ cần chuyển đổi: ");
-    let Inhoa = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    let Inthuong = 'abcdefghijklmnopqrstuvwxyz';
+    let Inhoa = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let Inthuong = "abcdefghijklmnopqrstuvwxyz";
     let result = [];
     for (let i = 0; i < text.length; i++) {
         if (Inhoa.indexOf(text[i]) !== -1) {
@@ -16,11 +16,10 @@
         } else if (Inthuong.indexOf(text[i]) !== -1) {
             result.push(text[i].toUpperCase());
         } else {
-            result.push(text);
+            result.push(text[i]);
         }
     }
     document.write(`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${text}<br>==> ${result.join("")}`);
-
 </script>
 </body>
 </html>
