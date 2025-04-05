@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Viết chương trình khởi tạo hoặc nhập vào một mảng số nguyên gồm 10 phần tử.
+        Chương trình sắp xếp mảng theo thứ tự giảm dần và hiển thị mảng đã được sắp xếp.</title>
+</head>
+<body>
+<script>
+    let numbers = [4, 7, 21, 18, 29, 14, 7, 13, 56, 34]
+    let descendingnumbers = numbers.slice().sort((a, b) => b - a)
+    document.write(`numbers = [4, 7, 21, 18, 29, 14, 7, 13, 56, 34] <br>descendingnumbers =[${descendingnumbers}]`)
+</script>
+</body>
+</html>

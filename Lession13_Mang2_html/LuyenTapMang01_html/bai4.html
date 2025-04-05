@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Viết chương trình khởi tạo hoặc nhập vào một mảng số nguyên và đảo ngược các phần tử trong mảng.</title>
+</head>
+<body>
+<script>
+    let number = prompt("nhập vào chuỗi các chữ số vào mảng numbers")
+    let numbers = []
+    // let last
+    // let a=[]
+    // for(let i=1;i<= numbers.length;i++){
+    //   last=numbers[numbers.length -i];
+    //   a.push(last);
+    // }
+    // document.write(a.join());
+    if (isNaN(number)) {
+        document.write("vui lòng nhập số nguyên");
+    } else {
+        for (let i = 0; i < number.length; i++) {
+            numbers.push(parseInt(number[i]));
+        }
+
+        document.write(`numbers = [${numbers}] <br>`);
+
+        let reverse = numbers.slice().reverse();
+        document.write(`Reverse.numbers &nbsp= &nbsp[${reverse}]`);
+    }
+
+</script>
+</body>
+</html>

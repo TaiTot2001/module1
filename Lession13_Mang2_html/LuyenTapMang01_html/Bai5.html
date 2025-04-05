@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Viết chương trình đếm số nguyên âm trong một chuỗi.</title>
+</head>
+<body>
+<input onchange="countVowels()" id="input" placeholder="Nhập chuỗi vào đây">
+<p id="ketqua">Kết quả</p>
+<script>
+    function countVowels() {
+
+        let chuoi = [];
+        let inputvalue = document.getElementById("input").value
+        for (let i = 0; i < inputvalue.length; i++) {
+            if (inputvalue [i] == "a" || inputvalue [i] == "e" || inputvalue [i] == "i" || inputvalue [i] == "o" || inputvalue [i] == "u") {
+                chuoi.push(i)
+            }
+        }
+        document.getElementById("ketqua").innerHTML = `Số nguyên âm trong chuỗi  "${inputvalue}" là:&nbsp; ${chuoi.length}`
+
+
+    }
+</script>
+</body>
+</html>

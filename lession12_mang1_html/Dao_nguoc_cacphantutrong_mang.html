@@ -6,15 +6,9 @@
 </head>
 <body>
 <script>
-    let x=[1,2,3,4,5];
-    let sodau=0;
-    let socuoi=x.length-1;
-    for(sodau,socuoi; sodau<socuoi ; sodau++,socuoi-- ){
-        let a=x[sodau];
-        x[sodau]=x[socuoi];
-        x[socuoi]=a;
-    }
-    document.write("x " + " = "+ "["+x+"]");
+    let numbers=[1,2,3,4,5];
+   let reverse=numbers.reverse();
+   document.write(`numbers = [${reverse}]`);
 </script>
 </body>
 </html>
