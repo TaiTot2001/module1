@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let arr = [ 'c', 's', 'c', '2', '6', '1' ];
+  let count=0
+  for(let i=0; i<arr.length; i++){
+    if( 0 <= arr[i] && arr[i] <= 9){
+      count++;
+    }
+  }
+  document.write(`Mảng ký tự: arr = [ 'c', 's', 'c', '2', '6', '1' ] <br >Số ký tự là chữ số (0-9):&nbsp ${count}`)
+</script>
+</body>
+</html>
