@@ -5,28 +5,6 @@
     <title>Title</title>
 </head>
 <body>
-<input type="text" id="input" placeholder="English">
-<p id="result">Dịch là: </p>
-<button onclick="Translate1()" style="color: #d61b06">Hiển Thị</button>
-<script>
-    let english = ["hello world!", "apple", "banana", "orange", "grape"];
-    let vietnam = ["Xin chào thế giới!", "Quả táo", "Quả chuối", "Quả cam", "Quả nho"];
 
-    function Translate1() {
-        let input = document.getElementById("input").value;
-        let found = false;
-        for (let i = 0; i < english.length; i++) {
-            if (input === english[i]) {
-                document.getElementById("result").innerHTML = "Dịch là: " + vietnam[i];
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
-            document.getElementById("result").innerHTML = "Không tìm thấy"
-        }
-
-    }
-</script>
 </body>
 </html>
