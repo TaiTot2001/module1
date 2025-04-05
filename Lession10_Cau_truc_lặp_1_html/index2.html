@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table id="board" border="1"></table>
+<script>
+    let i;
+    let board = document.getElementById(`board`);
+    for (i = 1; i < 11; i++) {
+        let tr = document.createElement(`tr`);
+        board.appendChild(tr);
+        for (let j = 1; j < 6; j++) {
+            let td = document.createElement(`td`);
+            tr.appendChild(td);
+            td.style.width = `50px`;
+            td.style.height = `50px`;
+            if (i % 2 === 0 && j % 2 === 0) {
+                td.style.backgroundColor = "yellow";
+            } else if (i % 2 !== 0 && j % 2 === 0) {
+                td.style.backgroundColor = "green";
+
+            } else if (i % 2 === 0 && j % 2 !== 0) {
+                td.style.backgroundColor = "green";
+            } else {
+                td.style.backgroundColor = "yellow";
+            }
+        }
+    }
+
+
+</script>
+</body>
+</html>

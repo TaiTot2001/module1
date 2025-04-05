@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Viết chương trình khởi tạo một mảng số nguyên gồm 10 phần tử.
+        Chương trình thực hiện tính và hiển thị xem có bao nhiêu số nguyên lớn hơn hoặc bằng 10.</title>
+</head>
+<body>
+<script>
+    let numbers = [3, 7, 8, 9, 10, 14, 24, 91, 100, 13];
+    let newnumbers = [];
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] >= 10) {
+            newnumbers.push(numbers[i]);
+        }
+    }
+    document.write(`numbers = [3, 7, 8, 9, 10, 14, 24, 91, 100, 13] <br><br>
+Mảng numbers có: ${newnumbers.length} số lớn hơn bằng 10<br><br>
+Các số đó là: &nbsp;&nbsp;  [${newnumbers.join(" , ")}]
+`);
+</script>
+</body>
+</html>

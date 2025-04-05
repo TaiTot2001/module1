@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input onchange="countVowels()" id="input">
+<div id="ketqua"></div>
+<script>
+    function countVowels() {
+
+        let chuoi = []
+        let inputvalue = document.getElementById("input").value
+        for (let i = 0; i < inputvalue.length; i++) {
+            if (inputvalue [i] == "a" || inputvalue [i] == "e" || inputvalue [i] == "i" || inputvalue [i] == "o" || inputvalue [i] == "u") {
+                chuoi.push(i)
+            }
+        }
+
+        document.getElementById("ketqua").innerHTML = chuoi.length
+
+
+    }
+</script>
+</body>
+</html>

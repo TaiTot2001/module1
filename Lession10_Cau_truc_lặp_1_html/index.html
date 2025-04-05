@@ -6,13 +6,25 @@
 </head>
 <body>
 <script>
-    for (let i = 1; i <= 9; i++) {
-        for (let j = 1; j <= 9; j++) {
-            document.write(i + " x " + j + " = " + (i * j)+ "<br>");
+    let isgood =false
+    let ischeap =false
+    let isfast =false
+    function checkisgood(){
+        isgood = !isgood
+        if(isgood && ischeap){
+            isfast = false
         }
-        document.write("<br>");
+    }function checkicheap(){
+        ischeap = !ischeap
+        if(ischeap && isfast){
+            isgood = false
+        }
+    }function checkisfast(){
+        isfast = !isfast
+        if(isfast && isgood){
+            ischeap = false
+        }
     }
-
 </script>
 </body>
 </html>
