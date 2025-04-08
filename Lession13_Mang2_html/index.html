@@ -15,12 +15,20 @@
     // }
     // document.write( `two = [${two}]`);
 
-    let girls = ["Lan", "Hoa", "Dao", "Huong"];
-    let boys = ["Ti", "Teo", "Tuat", "Hoi"];
-    let randomGirl = girls[Math.floor(Math.random() * girls.length)];
-    let randomBoy = boys[Math.floor(Math.random() * boys.length)];
-    document.write(randomGirl, randomBoy);
+    // let girls = ["Lan", "Hoa", "Dao", "Huong"];
+    // let boys = ["Ti", "Teo", "Tuat", "Hoi"];
+    // let randomGirl = girls[Math.floor(Math.random() * girls.length)];
+    // let randomBoy = boys[Math.floor(Math.random() * boys.length)];
+    // document.write(randomGirl, randomBoy);
 
+    function taoLoiChao(ten) {
+        return function() {
+            console.log("Xin chào " + ten);
+        };
+    }
+
+    taoLoiChao("Linh")();
+     // 👉 Xin chào Linh
 
 </script>
 </body>

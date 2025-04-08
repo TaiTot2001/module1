@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function swap(a, b) {
+    var temp = a;
+    a = b;
+    b = temp;
+    return [a,b];
+  }
+
+  var a = 5;
+  var b = 10;
+  [a,b]=swap(a, b);
+  document.write("a = " + a + ", b = " + b);
+</script>
+</body>
+</html>
