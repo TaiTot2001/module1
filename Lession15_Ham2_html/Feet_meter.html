@@ -11,7 +11,7 @@
     function footMeter(meter,foot) {
         let resultmeter = 0.305 * foot
         let resultfoot = 3.279 * meter;
-        return meter + "meter = " + resultmeter+ " foot<br>" + foot + "foot = " + resultfoot + "meter" ;
+        return meter + "meter = " +resultfoot.toFixed(3) + " foot<br>" + foot + "foot = " + resultmeter.toFixed(3) + "meter" ;
     }
 document.write(footMeter(meter,foot))
 
