@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    function isPrime() {
+        let count = 0; //đếm ước của number.number là một sô nguyên tố khi count=2  (number chia hết cho1 và number)
+        let number = parseInt(prompt("Enter a number"));
+        if (isNaN(number) || number < 0) {
+            alert("Please enter a number");
+            return;
+        }
+        for (let i = 1; i <= number; i++) {
+            if (number % i === 0) {
+                count += 1;
+            }
+        }
+        if (count === 2) {
+            alert(number + " là một số nguyên tố")
+        } else {
+            alert(number + " không phải là số nguyên tố")
+        }
+    }
+
+    isPrime();
+
+</script>
+</body>
+</html>
