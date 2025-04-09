@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let foot = parseInt(prompt("Nhập foot"));
+    let meter = parseInt(prompt("Nhập meter"));
+    function footMeter(meter,foot) {
+        let resultmeter = 0.305 * foot
+        let resultfoot = 3.279 * meter;
+        return meter + "meter = " + resultmeter+ " foot<br>" + foot + "foot = " + resultfoot + "meter" ;
+    }
+document.write(footMeter(meter,foot))
+
+</script>
+</body>
+</html>
