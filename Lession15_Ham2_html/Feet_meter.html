@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+<body onload="document.write(footMeter(meter,foot))">
 <script>
     let foot = parseInt(prompt("Nhập foot"));
     let meter = parseInt(prompt("Nhập meter"));
@@ -13,7 +13,7 @@
         let resultfoot = 3.279 * meter;
         return meter + "meter = " +resultfoot.toFixed(3) + " foot<br>" + foot + "foot = " + resultmeter.toFixed(3) + "meter" ;
     }
-document.write(footMeter(meter,foot))
+// document.write(footMeter(meter,foot))
 
 </script>
 </body>

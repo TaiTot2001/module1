@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo hàm nhận vào hai tham số:
+        Nếu giá trị của tham số thứ nhất lớn hơn tham số thứ hai, hiển thị hộp thoại thông báo cho người dùng.
+        Nếu giá trị của tham số thứ nhất nhỏ hơn hoặc bằng tham số thứ hai, trả về tổng của hai tham số.</title>
+</head>
+<body>
+<script>
+    let numberOne = parseInt(prompt("Nhập vào số thứ nhất:"));
+    let numberTwo = parseInt(prompt("Nhập vào số thứ hai:"));
+
+    function thongBao(numberOne, numberTwo) {
+        if (numberOne <= numberTwo) {
+            return numberOne + numberTwo;
+        }
+        alert("Số thứ nhất > số thứ hai")
+    }
+    let ketQua = thongBao(numberOne, numberTwo);
+    if (ketQua !== undefined) {
+        alert("Tổng của hai số là: " + ketQua);
+    }
+</script>
+</body>
+</html>

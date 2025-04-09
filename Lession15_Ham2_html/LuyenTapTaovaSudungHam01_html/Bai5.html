@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="document.write(checkName())">
+
+<script>
+  let nameStar = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+  let star= ["Ursa Minor", "Taurus", "Cygnus", "Lyra","Aquila", "Ursa Major", "Leo"]
+  let name =""
+  let inputName = String(prompt("Enter your name"))
+  function checkName(){
+    for(let i=0;i<nameStar.length;i++){
+      if(nameStar[i] === inputName){
+        return  star[i]
+      }
+    }
+    document.write("Không tìm thấy giá trị")
+  }
+
+</script>
+</body>
+</html>
