@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let num1 = parseInt(prompt("Nhập vào số thứ nhất :"))
+    let num2 = parseInt(prompt("Nhập vào số thứ hai :"))
+    let num3 = parseInt(prompt("Nhập vào số thứ ba :"))
+    if (isNaN(num1) || isNaN(num2) || isNaN(num3)) {
+        alert("Vui lòng nhập vào ba số hợp lệ !")
+    } else {
+        function checkMin(num1, num2, num3) {
+            let min = num1;
+            if (min > num2) {
+                min = num2;
+            }
+            if (min > num3) {
+                min = num3;
+            }
+            return min;
+        }
+
+        alert("Số nhỏ nhất là : " + checkMin(num1, num2, num3));
+    }
+
+</script>
+</body>
+</html>

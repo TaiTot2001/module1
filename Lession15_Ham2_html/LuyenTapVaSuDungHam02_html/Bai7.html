@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let num1= parseInt(prompt("Nhập số thứ nhất: "))
+  let num2= parseInt(prompt("Nhập số thứ hai: "))
+  function changePlace(a,b){
+    let temp = a;
+    a = b;
+    b = temp;
+    return [a, b]
+  }
+  let change = changePlace(num1, num2);
+  alert(`Sau khi đổi chỗ: \nSố thứ nhất là ${change[0]} \nSố thứ hai là ${change[1]}`)
+</script>
+</body>
+</html>

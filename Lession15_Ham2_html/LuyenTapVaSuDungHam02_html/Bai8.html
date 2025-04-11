@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function changePlace(arr) {
+        return arr.reverse();
+    }
+
+    let input = prompt(`Nhập vào một mảng số nguyên được phân tách nhau bằng dấu "," \nVD : 1 , 2, 3, 4 ,....`)
+    let array = input.split(",").map(Number)
+    /* splice(",") tách chuỗi trong input thành mảng các phần tử. nhận diện từng phần tử bằng dấu ","*/
+    alert(` Mảng bạn nhập vào [${input}] \n Mảng sau khi đảo ngược vị trí [${changePlace(array)}]`)
+
+</script>
+</body>
+</html>

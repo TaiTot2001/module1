@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function roundArea(radius) {
+return Math.PI * radius*radius;
+  }
+
+  function circumference(radius) {
+return Math.PI * radius*2;
+  }
+  let radius = parseInt(prompt("Nhập vào bán kính hình tròn"));
+  if (isNaN(radius)) {
+    alert("Vui lòng nhập một số hợp lệ !");
+  }else {
+    document.write("Diện tích hình tròn có bán kính R = " +radius+" là : " +roundArea(radius).toFixed(2) + "<br>");
+    document.write("Chu vi hình tròn có bán kính R = " +radius+" là : " +circumference(radius).toFixed(2));
+  }
+</script>
+</body>
+</html>

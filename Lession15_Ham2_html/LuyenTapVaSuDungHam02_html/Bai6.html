@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function checkNumber(num) {
+    return !isNaN(num)  && Number.isInteger(num) && num > 0 ;
+  }
+  let num = parseFloat(prompt("Nhập vào một số :"))
+  alert("Kiểm tra " +num+" có là số nguyên dương không ?\nCâu trả lời là:  "+checkNumber(num));
+</script>
+</body>
+</html>

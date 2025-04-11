@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function factorial(num) {
+    if (num ===1 || num === 0){
+      return 1;
+    }
+    return num * factorial(num-1);
+  }
+  let num = parseFloat(prompt("Nhập vào một số để thực hiện tính giai thừa: "));
+  if (isNaN(num) || num < 0 || !Number.isInteger(num)) {
+    alert("Vui lòng nhập vào một số nguyên dương hợp lệ !!")
+  }
+  else {
+    alert(`Giai thừa của ${num}! = ${factorial(num)}`)
+  }
+</script>
+</body>
+</html>
