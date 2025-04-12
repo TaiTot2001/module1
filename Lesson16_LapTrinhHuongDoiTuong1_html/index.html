@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //Cách1
+    // function person9(name,age,weight) {
+    //     this.name = name;
+    //     this.age = age;
+    //     this.weight= weight;
+    //     this.say = function () {
+    //         console.log(`Tên của tôi làn: ${this.name}, tôi ${this.age} tuổi, nặng ${this.weight}`);
+    //     }
+    //     this.move = function () {
+    //         console.log ("Walking......")
+    //     }
+    // }
+    // let person1= new person9(`Trung`,23,69)
+    // console.log(person1.name)
+    // person1.say ()
+    // person1.move ()
+
+    //Cách 2:
+    const person = {
+        name : "Tài",
+        age : 24,
+        weight : 58,
+        say : function () {
+            console.log(this.name + " alooooo " + this.age)
+        }
+    }
+    person.say()
+    console.log(person)
+
+</script>
+
+</body>
+</html>

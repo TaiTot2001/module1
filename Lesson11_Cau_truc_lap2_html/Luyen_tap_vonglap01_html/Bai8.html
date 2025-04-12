@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: lightcyan;
+            padding: 100px;
+        }
+
+        /*h1 {*/
+        /*    color: black;*/
+        /*}*/
+
+        #playGame {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 20px;
+            border-radius: 8px;
+            cursor: pointer; /* Con trỏ chuột chuyển thành nút bàn tay chỉ */
+            transition: background-color 0.5s;/* chuyển màu nền hover trong 0,5s */
+        }
+
+        #playGame:hover {
+            background-color: green; /* khi người dùng trỏ vào #playgame thì nút chuyển màu đỏ */
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+<h1>🎯 Game Đoán Số 🎯</h1>
+<button id="playGame">Bắt đầu</button>
+<div id="message"></div>
+<script>
+    let playButton = document.getElementById("playGame");
+    playButton.addEventListener("click", function () {
+        let max =parseFloat(prompt("Bạn muốn đoán từ số 0 đến số bao nhiêu"))
+        if (isNaN(max) || max <= 0) {
+            alert("Vui lòng nhập dạng số và lớn hơn 0");
+            return;
+        }
+        max = Number(max);
+        let randomNumber = Math.floor(Math.random() * (max +1));
+
+        for (let i = 3; i > 0; i--) /* Người chơi được đoán tối đa 3 lần */ {
+            let guess = prompt(` Bạn có ${i} lần để đoán -_- \n Số mà bạn đoán là : `);
+            if (guess === null) {
+                alert("Trò chơi đã bị hủy !!");
+                return;
+            }
+            guess = Number(guess);
+            if (isNaN(guess) || guess < 0) {
+                alert("Hãy nhập dạng số lớn >= 0 ! ");
+                return;
+            }
+            if (guess === randomNumber) {
+                document.getElementById("message").innerText="Chúc mừng! Bạn đã đoán đúng số bí mật!  ";
+                return;
+            } else if (guess > randomNumber) {
+                alert(`Số bạn đoán lớn hơn số bí mật.`);
+            } else {
+                alert(`Số bạn đoán nhỏ hơn số bí mật. `);
+            }
+
+        }
+        alert(`Hết lượt chơi! Số đúng là : ${randomNumber}`)
+    });
+</script>
+</body>
+</html>
