@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function characterArray() {
+        let inputArray = prompt("Hãy nhập vào một mảng ký tự\nVD: 1-2-3-4-anh-yêu-em");
+        if (inputArray === "" || inputArray == null) {
+            alert("Vui lòng nhập một chuỗi!");
+            return;
+        }
+        let charArray = inputArray.split("");
+        for (let i = 0; i < charArray.length; i++) {
+            if (charArray[i] === '-') {
+                charArray[i] = '_';
+            }
+        }
+        let result = charArray.join('');
+        alert("Chuỗi sau khi thay thế: " + result);
+    }
+
+    characterArray();
+</script>
+
+</body>
+</html>

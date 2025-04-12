@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function check2Words() {
+        let inputText1 = prompt("Nhập vào chuỗi thứ nhất : ");
+        let inputText2 = prompt("Nhập vào chuỗi thứ hai : ");
+        if (inputText1 === "" || inputText1 == null) {
+            alert(" Vui lòng nhập một chuỗi !!");
+            return;
+        }
+        if (inputText2 == null || inputText2 === "") {
+            alert(" Vui lòng nhập một chuỗi !!");
+            return;
+        }
+        if (inputText1 === inputText2) {
+            alert("Hai chuỗi giống nhau!")
+        } else{
+            alert("Hai chuỗi khác nhau!")
+        }
+
+    }
+
+
+    check2Words();
+</script>
+</body>
+</html>

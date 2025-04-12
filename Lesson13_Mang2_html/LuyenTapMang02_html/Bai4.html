@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Đếm số từ trong chuỗi</title>
 </head>
 <body>
+
+<script>
+function countWords() {
+    let inputText = prompt("Nhập một chuỗi");
+    if (inputText === "" || inputText == null) {
+        alert("Vui lòng nhập chuỗi !");
+        return;
+    }
+    let words = inputText.split(/\s+/);
+    let wordsLength = words.length;
+    alert(` Số từ bạn nhập vào là ${wordsLength}`);
+}
+countWords();
+</script>
 
 </body>
 </html>
