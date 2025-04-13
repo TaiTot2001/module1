@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function isPalindrome(s){
+    // s =s.toLowerCase().replace(/\s+/g, '');
+    if (s.length ===1){
+      return true;
+    }
+    if (s[0] !== s[s.length-1]){
+      return false;
+    }
+    return isPalindrome(s.slice(1,-1));
+  }
+  alert(isPalindrome("rotor"));
+  alert(isPalindrome("alo"));
+</script>
+</body>
+</html>

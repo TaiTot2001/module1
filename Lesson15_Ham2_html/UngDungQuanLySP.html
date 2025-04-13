@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý sản phẩm </title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 6px 10px;
+
+
+        }
+    </style>
+</head>
+<body>
+<h2>Quản lý sản phẩm</h2>
+
+<!-- Form thêm sản phẩm -->
+<input type="text" id="newProduct" placeholder="Tên sản phẩm mới">
+<button onclick="addProduct()">Thêm</button>
+<br><br>
+
+<!-- Form sửa sản phẩm -->
+<input type="text" id="editProduct" placeholder="Tên sản phẩm cần sửa">
+<button onclick="updateProduct()">Sửa</button>
+<br><br>
+
+<!-- Danh sách sản phẩm -->
+<table id="productTable">
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>Tên sản phẩm</th>
+        <th>Hành động</th>
+    </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<script>
+    let products = ["Chuột", "Bàn phím", "Màn hình"];
+
+    function displayProducts() {
+        const tableBody = document.querySelector("#productTable tbody");
+        tableBody.innerHTML = ""; // Xoá bảng cũ
+
+        products.forEach((product, index) => {
+            const row = document.createElement("tr");
+
+            row.innerHTML = `
+          <td>${index + 1}</td>
+          <td onclick="prepareEdit(${index})">${product}</td>
+          <td><button onclick="deleteProduct(${index})">Xoá</button></td>
+        `;
+
+            tableBody.appendChild(row);
+        });
+    }
+
+    function addProduct() {
+        const input = document.getElementById("newProduct");
+        const newProduct = input.value.trim();
+        if (newProduct) {
+            products.push(newProduct);
+            input.value = "";
+            displayProducts();
+            alert("Đã thêm sản phẩm.");
+        } else {
+            alert("Vui lòng nhập tên sản phẩm.");
+        }
+    }
+
+    let currentEditIndex = null;
+
+    function prepareEdit(index) {
+        document.getElementById("editProduct").value = products[index];
+        currentEditIndex = index;
+    }
+
+    function updateProduct() {
+        const newName = document.getElementById("editProduct").value.trim();
+        if (newName && currentEditIndex !== null) {
+            products[currentEditIndex] = newName;
+            currentEditIndex = null;
+            document.getElementById("editProduct").value = "";
+            displayProducts();
+            alert("Đã cập nhật tên sản phẩm.");
+        } else {
+            alert("Vui lòng chọn sản phẩm để sửa.");
+        }
+    }
+
+    function deleteProduct(index) {
+        if (confirm("Bạn có chắc chắn muốn xoá không?")) {
+            products.splice(index, 1);
+            displayProducts();
+        }
+    }
+
+    // Gọi ban đầu
+    displayProducts();
+</script>
+</body>
+</html>
