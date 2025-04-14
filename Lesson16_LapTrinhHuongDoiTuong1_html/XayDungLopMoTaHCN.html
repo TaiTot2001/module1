@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Hình chữ nhật</title>
+</head>
+<body>
+<canvas id="rectangleCanvas" width="1000" height="509" style="border:1px solid black;"></canvas>
+
+<script>
+    let Rectangle = function (width, length) {
+        this.width = width;
+        this.length = length;
+        this.getArea = function () {
+            return this.width * this.length;
+        }
+        this.getPerimeter = function () {
+            return 2 * (this.width + this.length)
+        }
+        this.createRect = function () {
+            ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+            ctx.beginPath();
+            ctx.rect(50, 50, this.width, this.length);
+            ctx.fillStyle = "red";
+            ctx.fill();
+            ctx.stroke();
+        }
+        this.setLength = function (newLength) {
+            this.length = newLength;
+        }
+        this.setWidth = function (newWidth) {
+            this.width = newWidth;
+        }
+    }
+    let rectangle = new Rectangle(200, 100);
+    let canvas = document.getElementById("rectangleCanvas");
+    let ctx = canvas.getContext("2d");
+
+    rectangle.createRect(); //vẽ HCN ban đầu
+
+    rectangle.setWidth(50);
+    rectangle.setLength(30);
+    rectangle.createRect(); // vẽ HCN sau khi thay đổi
+
+    let area = rectangle.getArea();
+    let perimeter = rectangle.getPerimeter();
+
+    alert("Diện tích HCN: " + area);
+    alert("Chu vi HCN: " + perimeter);
+</script>
+</body>
+</html>
