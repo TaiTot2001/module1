@@ -6,19 +6,19 @@
 </head>
 <body>
 <script>
-  let temperature = function (celsius) {
-    this.celsius = celsius;
-    this.fahrenheit = function (){
-      return this.celsius* (9/5)+32;
+    let temperature = function (celsius) {
+        this.celsius = celsius;
+        this.fahrenheit = function () {
+            return this.celsius * (9 / 5) + 32;
+        }
+        this.kelvin = function () {
+            return this.celsius + 273.15;
+        }
     }
-    this.kelvin = function (){
-      return this.celsius +273.15;
-    }
-  }
-  let Temerature = new temperature(25);
-  let Fahrenheit = Temerature.fahrenheit();
-  let Kelvin = Temerature.kelvin();
-  document.write(` Nhiệt độ F: ${Fahrenheit} <br> Nhiệt độ K: ${Kelvin}`);
+    let Temerature = new temperature(25);
+    let Fahrenheit = Temerature.fahrenheit();
+    let Kelvin = Temerature.kelvin();
+    document.write(` Nhiệt độ F: ${Fahrenheit} <br> Nhiệt độ K: ${Kelvin}`);
 </script>
 </body>
 </html>
