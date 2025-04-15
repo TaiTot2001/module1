@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h2> Add new Product</h2>
+<br>
+<form onsubmit="createProduct(event)">
+    <input type="text" name="productName" id="productName" placeholder="Add new Product">
+    <button type="submit">add</button>
+</form >
+<br>
+<h2>Display ALL Product</h2>
+<br>
+<div class="heading">
+    <strong>Product Name</strong>
+    <strong id="productCount">SL Products</strong>
+</div>
+<br>
+<table>
+    <tbody id="productList">
+    <tr>
+        <td>Cam</td>
+        <td>
+            <button type="button">Edit</button>
+        </td>
+        <td>
+            <button type="button">Delete</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<script src="script.js"></script>
+</body>
+</html>

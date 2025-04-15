@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Mô phỏng điện thoại</title>
+</head>
+<body>
+<script>
+  class Mobile {
+    constructor(name) {
+      this.name = name;
+      this.battery = 100;
+      this.isOn = false;
+      this.draftMessage = "";
+      this.inbox = [];
+      this.sent = [];
+    }
+
+    checkPowerStatus() {
+      return this.isOn ? "Bật" : "Tắt";
+    }
+
+    turnOn() {
+      this.isOn = true;
+      this.decreaseBattery();
+    }
+
+    turnOff() {
+      this.isOn = false;
+    }
+
+    chargeBattery() {
+      if (this.battery < 100) {
+        this.battery++;
+      }
+    }
+
+    decreaseBattery() {
+      if (this.battery > 0) {
+        this.battery--;
+      }
+    }
+
+    writeMessage(message) {
+      if (!this.isOn) return;
+      this.draftMessage = message;
+      this.decreaseBattery();
+    }
+
+    sendMessage(receiver) {
+      if (!this.isOn || this.draftMessage === "") return;
+      receiver.receiveMessage(this.draftMessage, this.name);
+      this.sent.push(this.draftMessage);
+      this.draftMessage = "";
+      this.decreaseBattery();
+    }
+
+    receiveMessage(message, senderName) {
+      if (!this.isOn) return;
+      this.inbox.push(`Từ ${senderName}: ${message}`);
+      this.decreaseBattery();
+    }
+
+    viewInbox() {
+      if (!this.isOn) return;
+      this.decreaseBattery();
+      return this.inbox;
+    }
+
+    viewSentMessages() {
+      if (!this.isOn) return;
+      this.decreaseBattery();
+      return this.sent;
+    }
+  }
+
+  // Tạo hai đối tượng điện thoại
+  let nokia = new Mobile("Nokia");
+  let iphone = new Mobile("iPhone");
+
+  // Bật hai điện thoại
+  nokia.turnOn();
+  iphone.turnOn();
+
+  // Nokia soạn và gửi tin cho iPhone
+  nokia.writeMessage("Xin chào iPhone!");
+  nokia.sendMessage(iphone);
+
+  // iPhone kiểm tra hộp thư
+  let inbox = iphone.viewInbox();
+  alert("Hộp thư đến iPhone:\n" + inbox.join("\n"));
+</script>
+</body>
+</html>
