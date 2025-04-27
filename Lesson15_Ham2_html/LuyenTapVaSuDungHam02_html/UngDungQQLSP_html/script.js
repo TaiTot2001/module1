@@ -1,41 +1,52 @@
-const products = [`Tao`, `Cam`, `Chuoi`, `Le`];
-let productIndex = -1
+const products = [
+    'Apple meomeo',
+    'Samsung Galaxy S23',
+    'Google Pixel 7',
+    'OnePlus 11',
+    'Xiaomi 13 Pro',
+    'Sony Xperia 1 IV',
+];
+
 
 function displayProduct() {
-    document.getElementById(`productCount`).innerHTML = products.length + `products`;
+    document.getElementById('productCount').innerText =
+        products.length + ' products';
     const tableBody = document.getElementById('productList');
     tableBody.innerHTML = '';
-    let row = ``;
+    let row = '';
     for (let i = 0; i < products.length; i++) {
-        row += `<tr>`;
+        row += '<tr>';
         row += `<td>${products[i]}</td>`;
-        row += `<td><button type="button" onclick="handleEdit(${i})">edit</button></td>`;
+        row += `<td><button type="button" onclick="handleEdit(${i})">Edit</button></td>`;
         row += `<td><button type="button" onclick="handleDelete(${i})">Delete</button></td>`;
-        row += `</tr>`
+        row += '</tr>';
     }
     tableBody.innerHTML = row;
 }
+
+let productIndex = -1;
 
 function createProduct(e) {
     e.preventDefault();
     const productName = document.getElementById('productName').value;
     if (productIndex !== -1) {
         products[productIndex] = productName;
-        productIndex = -1;
-        document.getElementById('productName').value = '';
+        productIndex = -1; // Reset index after editing
+        document.getElementById('productName').value = ""; // Clear input field after edit
         document.getElementById('btnAdd').innerText = 'Add';
+
     } else {
         products.push(productName);
+        document.getElementById('productName').value = "";
     }
     displayProduct();
 }
 
 function handleDelete(index) {
-    if (confirm(`ban co muon xoa san pham ${products[index]} khong ?`)) {
+    if (confirm(`Bạn có muốn xóa sản phẩm ${products[index]} không?`)) {
         products.splice(index, 1);
         displayProduct();
     }
-
 }
 
 function handleEdit(index) {
@@ -44,7 +55,6 @@ function handleEdit(index) {
     console.log(productName);
     document.getElementById('productName').value = productName;
     document.getElementById('btnAdd').innerText = 'Update';
-    displayProducts();
 }
 
 displayProduct();

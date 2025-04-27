@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let out =''
+    function staircase(n) {
+        for(let i=1; i<=n; i++){
+            for(let j=1;j<=n-i;j++){
+                out += "&nbsp;&nbsp;" ;
+            }
+            for(let k=1; k<=i;k++){
+                out+="#";
+            }
+            out += "<br>";
+        }
+        return out;
+    }
+    document.write(staircase(6));
+
+</script>
+</body>
+</html>

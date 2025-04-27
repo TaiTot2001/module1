@@ -58,67 +58,7 @@
 </table>
 
 <script>
-    let products = ["Chuột", "Bàn phím", "Màn hình"];
 
-    function displayProducts() {
-        const tableBody = document.querySelector("#productTable tbody");
-        tableBody.innerHTML = ""; // Xoá bảng cũ
-
-        products.forEach((product, index) => {
-            const row = document.createElement("tr");
-
-            row.innerHTML = `
-          <td>${index + 1}</td>
-          <td onclick="prepareEdit(${index})">${product}</td>
-          <td><button class="btn" onclick="deleteProduct(${index})">Xoá</button></td>
-        `;
-
-            tableBody.appendChild(row);
-        });
-    }
-
-    function addProduct() {
-        const input = document.getElementById("newProduct");
-        const newProduct = input.value.trim();
-        if (newProduct) {
-            products.push(newProduct);
-            input.value = "";
-            displayProducts();
-            alert("Đã thêm sản phẩm.");
-        } else {
-            alert("Vui lòng nhập tên sản phẩm.");
-        }
-    }
-
-    let currentEditIndex = null;
-
-    function prepareEdit(index) {
-        document.getElementById("editProduct").value = products[index];
-        currentEditIndex = index;
-    }
-
-    function updateProduct() {
-        const newName = document.getElementById("editProduct").value.trim();
-        if (newName && currentEditIndex !== null) {
-            products[currentEditIndex] = newName;
-            currentEditIndex = null;
-            document.getElementById("editProduct").value = "";
-            displayProducts();
-            alert("Đã cập nhật tên sản phẩm.");
-        } else {
-            alert("Vui lòng chọn sản phẩm để sửa.");
-        }
-    }
-
-    function deleteProduct(index) {
-        if (confirm("Bạn có chắc chắn muốn xoá không?")) {
-            products.splice(index, 1);
-            displayProducts();
-        }
-    }
-
-    // Gọi ban đầu
-    displayProducts();
 </script>
 </body>
 </html>

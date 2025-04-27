@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra mảng tăng dần</title>
+</head>
+<body>
+<div>
+  <h3>
+    Mảng vừa nhập vào là : [ <span id="newArr">mảng không có gì</span> ]
+  </h3>
+</div>
+<div>
+<h4>
+  Mảng trên có tăng dần không: <span id="check"></span>
+</h4>
+</div>
+<script>
+  let n = +prompt("Nhập một mảng số từ bàn phím với độ dài n \nVới 1 <= n <= 20")
+  while(n < 1 || n > 20) {
+    n = +prompt("Vui long nhập 1 <= n <= 20")
+  }
+  let arr=[];
+  for (let i = 0; i < n; i++) {
+    let number = +prompt(`Nhập vào sô thứ ${i+1}`)
+    arr.push(number)
+  }
+  let newArr = arr.join(", ")
+  document.getElementById("newArr").innerHTML = newArr
+  // document.write(`Mảng sau khi nhập:  [ ${arr.join(", ")} ]`)
+  for (let i = 0; i < arr.length; i++) {
+    if(arr[i]<arr[i+1]){
+      document.getElementById("check").innerHTML = "OK"
+    }
+    else{
+      document.getElementById("check").innerHTML= "NO"
+    }
+  }
+</script>
+</body>
+</html>

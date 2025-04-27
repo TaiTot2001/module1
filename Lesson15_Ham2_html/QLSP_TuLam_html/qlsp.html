@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng quản lý sản phẩm</title>
+    <style>
+        table, th, td {
+            /*border: 1px solid white;*/
+            border-collapse: collapse;
+            padding: 6px 20px;
+            font-family: Arial, sans-serif;
+            padding-left: 0;
+        }
+
+        h2 {
+            font-family: Arial, sans-serif;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            font-size: 15px;
+            border-radius: 50px;
+            cursor: pointer; /* Con trỏ chuột chuyển thành nút bàn tay chỉ */
+            transition: background-color 0.5s; /* chuyển màu nền hover trong 0,5s */
+        }
+
+        button:hover {
+            background-color: darkgreen;
+        }
+
+        .heading {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px;
+        }
+
+        .heading strong:nth-child(2) {
+            width: 88%;
+            color: red;
+        }
+        input {
+            padding: 6px 12px;
+        }
+        tr:nth-child(even) {
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+<h2>Add New Product</h2>
+<form onsubmit="addProduct(event)">
+    <input type="text" id="names" name="names" placeholder="Product Name" required>
+    <button type="submit" id="btnAdd"> Add</button>
+</form>
+
+<h2>Display All Product</h2>
+<div class="heading">
+    <strong>Product Name</strong>
+    <strong id="productCount"> SL Product</strong>
+</div>
+
+<table>
+    <tbody id="productList">
+    <tr>
+        <td>Mai Thanh Trúc</td>
+        <td>
+            <button>Edit</button>
+        </td>
+        <td>
+            <button>Delete</button>
+        </td>
+    </tr>
+    </tbody>
+
+</table>
+<script>
+    const products = ['IP 12 Promax', 'IP 13 Promax', 'IP 14 Promax', 'IP 15 Promax',]
+
+    function displayProduct() {
+        document.getElementById('productCount').innerHTML = products.length + ' Products';
+        const tableBody = document.getElementById('productList');
+        tableBody.innerHTML = '';
+        let row = '';
+        for (let i = 0; i < products.length; i++) {
+            row += '<tr>';
+            row += `<td> ${products[i]} </td>`;
+            row += `<td> <button type="button" onclick="handleEdit(${i})">Edit </button></td>`;
+            row += `<td> <button type="button" onclick="handleDelete(${i})" >Delete </button></td>`;
+            row += '</tr>';
+
+        }
+        tableBody.innerHTML = row;
+    }
+
+    let productIndex = -1;
+
+    function addProduct(e) {
+        e.preventDefault();
+        const productName = document.getElementById('names').value;
+        if (productIndex !== -1) {
+            products[productIndex] = productName;
+            productIndex = -1;
+            document.getElementById('names').value = '';
+            document.getElementById('btnAdd').innerText = 'Add';
+        } else {
+            products.push(productName);
+            document.getElementById('names').value = '';
+        }
+        displayProduct();
+    }
+
+    function handleEdit(index) {
+        productIndex = index;
+        const productName = products[index];
+        console.log(productName);
+        document.getElementById('names').value = productName;
+        document.getElementById('btnAdd').innerText = 'Update';
+    }
+
+    function handleDelete(index) {
+        products.splice(index, 1);
+        displayProduct();
+    }
+
+    displayProduct();
+
+</script>
+</body>
+</html>

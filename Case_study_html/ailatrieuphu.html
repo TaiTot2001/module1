@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+<div id="timeAndBonus">
+    <div>
+        <h2 id="styleTime">
+            Thời gian : <span id="timer">30s</span>
+        </h2>
+    </div>
+    <div>
+        <h2 id="styleBonus">
+            Phần thưởng: <span id="bonus"></span>
+        </h2>
+    </div>
+</div>
+<div id="questionScreen" class="">
+    <div id="question" class="animate__animated animate__fadeInDown">Chưa có câu hỏi</div>
+    <div id="answer">
+        <table>
+            <tr>
+                <td>
+                    <button id="answer_1" class="animate__animated animate__fadeInLeft an_" onclick="checkAnswer(this.id, this)">Answer question 1
+                    </button>
+                </td>
+                <td>
+                    <button id="answer_2" class="animate__animated animate__fadeInRight an_" onclick="checkAnswer(this.id, this)">Answer question 2
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button id="answer_3" class="animate__animated animate__fadeInLeft an_" onclick="checkAnswer(this.id, this)">Answer question 3
+                    </button>
+                </td>
+                <td>
+                    <button id="answer_4" class="animate__animated animate__fadeInRight an_" onclick="checkAnswer(this.id, this)">Answer question 4
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+
+</html>
