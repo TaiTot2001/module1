@@ -117,7 +117,7 @@ function checkAnswer(id) {
                 });
                 stopMusic();
                 // right();
-                if (index === 1) {
+                if (index === 13) {
                     Swal.fire({
                         title: "🎉🎉🎉Chúc Mừng Bạn Đã Dành Chiến Thắng🎉🎉🎉 \n Giải thưởng : 85.000.000 VND",
                         width: 1250,
