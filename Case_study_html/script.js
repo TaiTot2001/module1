@@ -21,6 +21,13 @@ function music() {
 
 music();
 
+let musicWin;
+
+function win() {
+    musicWin = new Audio("sound/intro_2021.mp3");
+    musicWin.play();
+}
+
 function stopMusic() {
     if (musicBackground && !musicBackground.paused) {
         musicBackground.pause(); // Dừng phát
@@ -33,7 +40,7 @@ let countDown;
 const timerElement = document.getElementById("timer");
 
 function timeCount() {
-    let time = 30; // Bắt đầu từ 30 giây
+    let time = 20; // Bắt đầu từ 20 giây
     countDown = setInterval(function () {
         timerElement.innerText = time + "s"; // Hiển thị thời gian còn lại
         time--; // Giảm 1 mỗi giây
@@ -110,7 +117,7 @@ function checkAnswer(id) {
                 });
                 stopMusic();
                 // right();
-                if (index === 13) {
+                if (index === 1) {
                     Swal.fire({
                         title: "🎉🎉🎉Chúc Mừng Bạn Đã Dành Chiến Thắng🎉🎉🎉 \n Giải thưởng : 85.000.000 VND",
                         width: 1250,
@@ -120,6 +127,7 @@ function checkAnswer(id) {
                     }).then(() => {
                         reload()
                     });
+                    win();
                 }
                 nextQuestion();
                 music();
@@ -131,8 +139,6 @@ function checkAnswer(id) {
                     reload();
                 });
             }
-        } else if (result.isDenied) {
-            return true;
         }
     });
 }

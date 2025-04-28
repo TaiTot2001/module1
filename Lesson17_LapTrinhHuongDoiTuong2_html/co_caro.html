@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .winner-message {
+      font-size: 24px;
+      color: green;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+<div id="game-board" style="position: relative; width: 400px; height: 400px;"></div>
+<div id="winner-message" class="winner-message"></div>
+
+<script>
+  const VALUE_EMPTY = 1;
+  const VALUE_X = 2;
+  const VALUE_O = 3;
+  const DEFAULT_COLS = 10;
+  const DEFAULT_ROWS = 10;
+  const DEFAULT_CELL_SIZE = 40;
+
+  function Cell(x, y) {
+    this.x = x;
+    this.y = y;
+    this.value = VALUE_EMPTY;
+    this.getHtml = function(){
+      let top = x * DEFAULT_CELL_SIZE;
+      let left = y * DEFAULT_CELL_SIZE;
+      let cellHtml = '<div id="cell-'+x+'-'+y+'" onclick="play('+x+','+y+')" class="cell" style="position: absolute; width: '+
+              DEFAULT_CELL_SIZE+'px; height:'+
+              DEFAULT_CELL_SIZE+'px; left:'+
+              left+'px; top:'+
+              top+'px; line-height: '+
+              DEFAULT_CELL_SIZE+'px;"></div>';
+      return cellHtml;
+    };
+
+    this.draw = function () {
+      let cellDiv = document.getElementById("cell-"+x+"-"+y);
+      switch (this.value){
+        case VALUE_X:
+          cellDiv.innerHTML = "X";
+          break;
+        case VALUE_O:
+          cellDiv.innerHTML = "O";
+          break;
+        default:
+          cellDiv.innerHTML = "";
+          break;
+      }
+    }
+  }
+
+  function GameBoard(rows, cols, elementId) {
+    this.rows = rows;
+    this.cols = cols;
+    this.elementId = elementId;
+    this.turn = VALUE_O;
+    this.cells = [];
+    this.isOver = false;
+
+    this.draw = function () {
+      let gameBoardDiv = document.getElementById(this.elementId);
+      gameBoardDiv.innerHTML = "";
+      for(let i = 0; i < this.rows; i++){
+        let row = [];
+        this.cells.push(row);
+        for(let j = 0; j < this.cols; j++){
+          let cell = new Cell(i, j);
+          row.push(cell);
+          gameBoardDiv.innerHTML += cell.getHtml();
+        }
+      }
+    };
+
+    this.play = function (x, y) {
+      if(this.isOver) return;
+      let cell = this.cells[x][y];
+      if(cell.value === VALUE_EMPTY){
+        cell.value = this.turn;
+        cell.draw();
+        if(this.checkWin(x, y)) {
+          this.endGame(this.turn);
+        } else {
+          this.turn = (this.turn === VALUE_O) ? VALUE_X : VALUE_O;
+        }
+      } else {
+        alert("Cell is not empty");
+      }
+    };
+
+    this.checkWin = function (x, y) {
+      let directions = [
+        { dx: 0, dy: 1 }, // Horizontal
+        { dx: 1, dy: 0 }, // Vertical
+        { dx: 1, dy: 1 }, // Diagonal /
+        { dx: 1, dy: -1 } // Diagonal \
+      ];
+
+      for (let i = 0; i < directions.length; i++) {
+        let count = 1;
+        let dx = directions[i].dx;
+        let dy = directions[i].dy;
+
+        // Check in both directions (positive and negative)
+        count += this.countInDirection(x, y, dx, dy);
+        count += this.countInDirection(x, y, -dx, -dy);
+
+        if (count >= 5) {
+          return true;
+        }
+      }
+      return false;
+    };
+
+    this.countInDirection = function (x, y, dx, dy) {
+      let count = 0;
+      while (true) {
+        x += dx;
+        y += dy;
+        if (x >= 0 && x < this.rows && y >= 0 && y < this.cols && this.cells[x][y].value === this.turn) {
+          count++;
+        } else {
+          break;
+        }
+      }
+      return count;
+    };
+
+    this.endGame = function (winner) {
+      this.isOver = true;
+      let winnerMessage;
+      if (winner === VALUE_X) {
+        winnerMessage = "X wins!";
+      } else {
+        winnerMessage = "O wins!";
+      }
+      document.getElementById("winner-message").innerHTML = winnerMessage;
+    };
+  }
+
+  function play(x, y) {
+    gameBoard.play(x, y);
+  }
+
+  function start() {
+    gameBoard = new GameBoard(DEFAULT_ROWS, DEFAULT_COLS, "game-board");
+    gameBoard.draw();
+  }
+
+  let gameBoard;
+  start();
+</script>
+
+</body>
+</html>
