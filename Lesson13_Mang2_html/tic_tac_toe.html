@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div>
+  <table id="caroBoard"></table>
+</div>
+
+<script>
+  let caroBoard = document.getElementById('caroBoard');
+  let buttons = new Array(3);
+  for (let i = 0; i < 3; i++) {
+    buttons[i] = new Array(3);
+
+    let tr = document.createElement('tr');
+    caroBoard.appendChild(tr);
+    for (let j = 0; j < 3; j++) {
+      let td = document.createElement('td');
+      tr.appendChild(td);
+
+      let button = document.createElement('button');
+      td.appendChild(button);
+
+      button.textContent = '-';
+      button.addEventListener('click', function () {
+        markCell(i, j);
+      });
+      buttons[i][j] = button;
+    }
+  }
+
+  let cells = [
+    ['-', '-', '-'],
+    ['-', '-', '-'],
+    ['-', '-', '-'],
+  ];
+
+  let turn = 'X';
+
+  function markCell(x, y) {
+    // Nếu ô đã có giá trị thì không cho đánh dấu lại
+    if (cells[x][y] !== '-') {
+      return;
+    }
+
+    cells[x][y] = turn;
+    buttons[x][y].textContent = turn;
+
+    // Kiểm tra xem người chơi có thắng không
+    if (checkWin(x, y)) {
+      alert(turn + ' wins!');
+      resetBoard();
+      return;
+    }
+
+    // Thay đổi lượt chơi
+    if (turn === 'X') {
+      turn = 'O';
+    } else {
+      turn = 'X';
+    }
+  }
+
+  // Kiểm tra người chơi có thắng không
+  function checkWin(x, y) {
+    // Kiểm tra hàng ngang
+    if (cells[x][0] === cells[x][1] && cells[x][1] === cells[x][2] && cells[x][0] !== '-') {
+      return true;
+    }
+    // Kiểm tra cột dọc
+    if (cells[0][y] === cells[1][y] && cells[1][y] === cells[2][y] && cells[0][y] !== '-') {
+      return true;
+    }
+    // Kiểm tra chéo từ trái sang phải
+    if (x === y && cells[0][0] === cells[1][1] && cells[1][1] === cells[2][2] && cells[0][0] !== '-') {
+      return true;
+    }
+    // Kiểm tra chéo từ phải sang trái
+    if (x + y === 2 && cells[0][2] === cells[1][1] && cells[1][1] === cells[2][0] && cells[0][2] !== '-') {
+      return true;
+    }
+    return false;
+  }
+
+  // Reset lại bàn cờ
+  function resetBoard() {
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 3; j++) {
+        cells[i][j] = '-';
+        buttons[i][j].textContent = '-';
+      }
+    }
+    turn = 'X'; // Reset lại lượt chơi cho người chơi X
+  }
+</script>
+
+</body>
+</html>
