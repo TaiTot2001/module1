@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let x = prompt("Hãy nhập vào một phân số có dạng a/b: ")
+
+    function find(x) {
+        let fraction = /^(-?\d+)\/([1-9]\d*)$/; //định dạng phân số  a/b, a là số âm hoặc dương , b là số khác 0
+        let match = x.match(fraction); //kiểm tra x có là phân số  khớp với fraction không
+        if (match) {
+            let numerator = parseInt(match[1]);
+            let denominator = parseInt(match[2]);
+            console.log("Tử số:", numerator);
+            console.log("Mẫu số:", denominator);
+
+            // tìm ước chung lớn nhất của tử số và mẫu số
+            function greatestCommonDivisor(a, b) {
+                while (b !== 0) {
+                    let temp = b;
+                    b = a % b;
+                    a = temp;
+                }
+                return a;
+            }
+
+            let gcd = greatestCommonDivisor(numerator, denominator);
+            let newNumerator = numerator / gcd;
+            let newDenominator = denominator / gcd;
+            alert(` Phân số ${x} sau khi rút gọn là: ${newNumerator}/${newDenominator}`)
+
+        } else {
+            alert("Không phải là phân số")
+        }
+
+    }
+
+    find(x)
+</script>
+</body>
+</html>

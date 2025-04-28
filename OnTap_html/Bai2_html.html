@@ -2,9 +2,89 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Kiểm tra loại tam giác</title>
 </head>
 <body>
+<script>
+    let x = parseFloat(prompt("Nhập vào cạnh thứ nhất: "))
+    while (isNaN(x)) {
+        x = parseFloat(prompt("Vui lòng nhập cạnh thứ nhất ở dạng số"))
+    }
+    let y = parseFloat(prompt("Nhập vào cạnh thứ hai: "))
+    while (isNaN(y)) {
+        y = parseFloat(prompt("Vui lòng nhập cạnh thứ hai ở dạng số"))
+    }
+    let z = parseFloat(prompt("Nhập vào cạnh thứ ba: "))
+    while (isNaN(z)) {
+        z = parseFloat(prompt("Vui lòng nhập cạnh thứ ba ở dạng số"))
+    }
 
+    function checkTriangle(x, y, z) {
+        if ((x * x + y * y === z * z || y * y + z * z === x * x || z * z + x * x === y * y) && (x > 0 && y > 0 && z > 0)) {
+            alert("Đây là 3 cạnh của tam giác vuông")
+        } else if (x + y > z && x + z > y && y + z > x) {
+            alert("Đây là 3 cạnh của tam giác thường")
+        } else {
+            alert("Không phải là cạnh tam giác")
+        }
+
+    }
+
+    checkTriangle(x, y, z)
+</script>
 </body>
 </html>
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Kiểm tra loại tam giác</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<script>-->
+<!--    // Hàm kiểm tra tính hợp lệ của tam giác-->
+<!--    function isValidTriangle(x, y, z) {-->
+<!--        return x + y > z && y + z > x && z + x > y;-->
+<!--    }-->
+
+<!--    // Hàm phân loại tam giác-->
+<!--    function classifyTriangle(x, y, z) {-->
+<!--        if (x === y && y === z) {-->
+<!--            return "Đây là tam giác đều.";-->
+<!--        } else if (x * x + y * y === z * z || y * y + z * z === x * x || z * z + x * x === y * y) {-->
+<!--            return "Đây là tam giác vuông.";-->
+<!--        } else {-->
+<!--            return "Đây là tam giác thường.";-->
+<!--        }-->
+<!--    }-->
+
+<!--    // Hàm nhập và kiểm tra các cạnh-->
+<!--    function getSide(name) {-->
+<!--        let side = parseFloat(prompt(`Nhập vào cạnh ${name}:`));-->
+<!--        while (isNaN(side) || side <= 0) {-->
+<!--            side = parseFloat(prompt(`Vui lòng nhập cạnh ${name} ở dạng số và lớn hơn 0`));-->
+<!--        }-->
+<!--        return side;-->
+<!--    }-->
+
+<!--    // Main chương trình-->
+<!--    if (confirm("Kiểm tra loại tam giác.\nBạn có muốn thử không?")) {-->
+<!--        let x = getSide("thứ nhất");-->
+<!--        let y = getSide("thứ hai");-->
+<!--        let z = getSide("thứ ba");-->
+
+<!--        // Kiểm tra tính hợp lệ của tam giác-->
+<!--        if (isValidTriangle(x, y, z)) {-->
+<!--            // Phân loại tam giác-->
+<!--            let result = classifyTriangle(x, y, z);-->
+<!--            alert(result);-->
+<!--        } else {-->
+<!--            alert("Ba cạnh không tạo thành tam giác hợp lệ.");-->
+<!--        }-->
+<!--    } else {-->
+<!--        alert("Chương trình đã bị hủy.");-->
+<!--    }-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->

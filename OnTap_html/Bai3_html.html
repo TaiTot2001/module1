@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra mảng giảm dần</title>
+</head>
+<body>
+<script>
+    let n = parseInt(prompt("Nhập một mảng số từ bàn phím với độ dài n"))
+    while (isNaN(n)) {
+        n = parseInt(prompt("Vui lòng nhập n ở dạng số !"));
+    }
+    let arr = [];
+    let number;
+    for (let i = 1; i <= n; i++) {
+        number = parseInt(prompt(`Nhập vào số thứ ${i}`));
+        while (isNaN(number)) {
+            number = parseInt(prompt(`Vui lòng nhập số thứ ${i} ở dạng số !`));
+        }
+        arr.push(number);
+    }
+    document.write(`Mảng bạn vừa nhập vào là: [ ${arr.join(", ")} ] </br>`)
+    let check="OK"
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] < arr[i + 1]) {
+            check = "NO"
+            break;
+        }
+    }
+    document.write(`Mảng có giảm dần không: ${check}`);
+
+</script>
+</body>
+</html>
