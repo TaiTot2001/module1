@@ -42,13 +42,14 @@ const timerElement = document.getElementById("timer");
 function timeCount() {
     let time = 20; // Bắt đầu từ 20 giây
     countDown = setInterval(function () {
-        timerElement.innerText = time + "s"; // Hiển thị thời gian còn lại
-        time--; // Giảm 1 mỗi giây
+        timerElement.innerText = time + "s";
+        time--;
 
         if (time <= 0) {
-            clearInterval(countDown); // Dừng đếm ngược
+            clearInterval(countDown);
             Swal.fire({
-                icon: "error", text: "Hết giờ!",
+                icon: "error",
+                text: "Hết giờ!",
             }).then(() => {
                 reload();
             });
@@ -56,7 +57,7 @@ function timeCount() {
         if (time <= 5) { //từ 5s chuyển số màu đỏ
             timerElement.style.color = 'red';
         }
-    }, 1000); // Cứ 1000ms (1 giây) chạy 1 lần
+    }, 1000);
 }
 
 
@@ -78,12 +79,12 @@ let questions = [question1, question2, question3, question4, question5, question
 let questionElm = document.getElementById("question");
 
 function showQuestion(question_1) {
-    clearInterval(countDown);  // Dừng đồng hồ nếu có
+    clearInterval(countDown);
     timeCount();
     questionElm.innerHTML = question_1.content;
     document.getElementById('bonus').innerHTML = (questions[0].money);// hiện tiền thưởng
     questionElm.setAttribute("questionScreen", questions.indexOf(question_1).toString());
-    timerElement.style.color = 'gold';//reset đồng hồ đếm ngược về màu ban đầu
+    timerElement.style.color = 'gold';
     for (let i = 0; i < 4; i++) {
         let getaswId = document.getElementById('answer_' + (i + 1));
         getaswId.innerHTML = question_1.answer[i];
@@ -106,7 +107,6 @@ function checkAnswer(id) {
     Swal.fire({
         title: "Bạn chắc chắn chứ?", icon: "question"
     }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
             if (questions[index].checkAnswer(answer)) {
                 Swal.fire({
@@ -134,7 +134,7 @@ function checkAnswer(id) {
                 document.getElementById('bonus').innerHTML = (questions[index].money);
             } else {
                 Swal.fire({
-                    icon: "error", title: "Oops...", text: "Bạn đã thua!",
+                    icon: "error", title: "Sai", text: "Bạn đã thua!",
                 }).then(() => {
                     reload();
                 });

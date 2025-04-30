@@ -24,7 +24,7 @@
         #start {
             position: absolute;
             top: 480px;
-            left: 614px;
+            left: 605px;
             padding: 15px 40px;
             font-size: 40px;
             font-weight: bold;
@@ -33,9 +33,6 @@
             background: gold;
             color: white;
             cursor: pointer;
-
-            /*transition: transform 0.3s ease, box-shadow 0.3s ease;*/
-            /*box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);*/
         }
 
         #start:hover {
@@ -48,15 +45,15 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 <body>
-<button class="animate__animated animate__fadeInUp" id="start" onclick="startGame()">START</button>
+<button class="animate__animated animate__fadeInUp" id="start" onclick="startGame()">Bắt đầu</button>
 <script>
     let music = new Audio("sound/intro_2021.mp3");
 
     function startGame() {
-        music.play(); // Phát nhạc sau khi người dùng bấm nút
+        music.play();
         setTimeout(() => {
             location.replace("ailatrieuphu.html");
-        },); // Đợi 3 giây cho người dùng nghe nhạc rồi chuyển trang
+        },15000);
     }
 </script>
 

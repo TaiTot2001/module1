@@ -6,14 +6,14 @@
 </head>
 <body>
 <div>
-    <h3>
-        Mảng vừa nhập vào là : [ <span id="newArr">mảng không có gì</span> ]
-    </h3>
+    <p>
+        Mảng vừa nhập vào là : <span id="newArr">mảng không có gì</span>
+    </p>
 </div>
 <div>
-    <h4>
+    <p>
         Mảng trên có tăng dần không: <span id="check"></span>
-    </h4>
+    </p>
 </div>
 <script>
     let n = +prompt("Nhập một mảng số từ bàn phím với độ dài n \nVới 1 <= n <= 20")
@@ -22,11 +22,11 @@
     }
     let arr = [];
     for (let i = 0; i < n; i++) {
-        let number = +prompt(`Nhập vào sô thứ ${i + 1}`)
+        let number = +prompt(`Nhập vào số thứ ${i + 1}`)
         arr.push(number)
     }
     let newArr = arr.join(", ")
-    document.getElementById("newArr").innerHTML = newArr
+    document.getElementById("newArr").innerHTML = `[ ${newArr} ]`
     let check = "OK"
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] > arr[i + 1]) {
