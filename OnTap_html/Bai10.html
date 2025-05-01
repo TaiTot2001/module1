@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str = prompt("Hãy nhập vào một chuỗi:");
+
+    let vowel = "ueoai"
+    // console.log(vowel[2]);
+    let lowerCaseResult = str.toLowerCase();
+    console.log(lowerCaseResult);
+    function checkString() {
+        let result = [];
+        for (let i = 0; i < str.length; i++) {
+            for (let j = 0; j < vowel.length; j++) {
+                if (lowerCaseResult[i] === vowel[j]) {
+                    result.push(lowerCaseResult[i]);
+                    // console.log(result);
+                }
+            }
+        }
+        // let newResult = result
+        for (let i = 0; i < result.length; i++) {
+            for (let j =i+1; j <result.length ;) {
+                if(result[i]===result[j]) {
+                    result.splice(i, 1);
+                }
+                else{
+                    j++
+                }
+            }
+        }
+        return result;
+    }
+
+    alert(checkString())
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = +prompt("Nhập từ bàn phím độ dài n (với n là số chẵn):");
+    while (isNaN(n) || n % 2 !== 0 || n <= 0) {
+        n = +prompt("Vui lòng nhập n ở dạng số và n là số chẵn")
+    }
+    let arr = [];
+    for (let i = 1; i <= n; i++) {
+        let number = +prompt(`nhập vào số thứ ${i}`);
+        while (isNaN(number) || !number) {
+            number = +prompt(`Hãy nhập số thứ ${i} ở dạng số:`)
+        }
+        arr.push(number);
+    }
+    let newArr = arr.join(", ");
+    let result = "OK"
+
+    function check() {
+        for (let i = 0; i < arr.length; i += 2) {
+            if (arr[i] > arr[i + 1]) {
+                result = "NO"
+            }
+        }
+        return result;
+    }
+
+    alert(`
+  Mảng bạn vừa nhập vào là : [ ${newArr} ]
+  Các cặp phần tử liên kề (phần tử thứ nhất < phần tử thứ hai): ${check()}
+  `)
+
+</script>
+</body>
+</html>
