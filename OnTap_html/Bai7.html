@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kieem tra mảng kí tự</title>
+</head>
+<body>
+<script>
+  function checkNumber(arr) {
+      return /^-?\d+(\.\d+)?$/.test(arr)
+  }
+  function checkWord(arr) {
+      return /^[a-zA-Z]+$/.test(arr)
+  }
+  function checkArr(arr) {
+      let number=true;
+      let word=true;
+      for (let i = 0; i < arr.length; i++) {
+          if(checkNumber(arr[i])){
+              word = false;
+          }
+          else if(checkWord(arr[i])){
+              number = false;
+          }
+          else{
+              return -1;
+          }
+      }
+      if(number){
+          return 1;
+      }
+      else if(word){
+          return 0;
+      }
+      else{
+          return -1;
+      }
+  }
+  alert(checkArr(["asddg"]));
+  alert(checkArr(["asddg1"]));
+  alert(checkArr(["asddg","1233"]));
+  alert(checkArr(["asddg","!@#"]));
+  alert(checkArr(["asddg@"]));
+  alert(checkArr(["1"]));
+  alert(checkArr(["1!"]));
+</script>
+</body>
+</html>
