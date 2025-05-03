@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Cờ Ca-ro 20x20</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+    }
+    #board {
+      display: grid;
+      grid-template-columns: repeat(20, 30px);
+      grid-template-rows: repeat(20, 30px);
+      gap: 1px;
+      margin: 20px auto;
+      width: fit-content;
+    }
+    .cell {
+      width: 30px;
+      height: 30px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      font-size: 20px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .cell:hover {
+      background-color: #ddd;
+    }
+    #status {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+<h1>Trò chơi Cờ Ca-ro 20x20</h1>
+<div id="board"></div>
+<div id="status">Lượt chơi: X</div>
+
+<script>
+  const size = 20;
+  let board = [];
+  let currentPlayer = 'X';
+  let gameOver = false;
+
+  const boardDiv = document.getElementById('board');
+  const statusDiv = document.getElementById('status');
+
+  function createBoard() {
+    for (let row = 0; row < size; row++) {
+      board[row] = [];
+      for (let col = 0; col < size; col++) {
+        board[row][col] = '';
+        const cell = document.createElement('div');
+        cell.className = 'cell';
+        cell.dataset.row = row;
+        cell.dataset.col = col;
+        cell.addEventListener('click', handleClick);
+        boardDiv.appendChild(cell);
+      }
+    }
+  }
+
+  function handleClick(event) {
+    if (gameOver) return;
+    const row = parseInt(event.target.dataset.row);
+    const col = parseInt(event.target.dataset.col);
+    if (board[row][col] !== '') return;
+
+    board[row][col] = currentPlayer;
+    event.target.textContent = currentPlayer;
+
+    if (checkWin(row, col)) {
+      statusDiv.textContent = `Người chơi ${currentPlayer} thắng!`;
+      gameOver = true;
+      return;
+    }
+
+    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+    statusDiv.textContent = `Lượt chơi: ${currentPlayer}`;
+  }
+
+  function checkWin(row, col) {
+    return (
+            countConsecutive(row, col, 0, 1) + countConsecutive(row, col, 0, -1) > 4 || // ngang
+            countConsecutive(row, col, 1, 0) + countConsecutive(row, col, -1, 0) > 4 || // dọc
+            countConsecutive(row, col, 1, 1) + countConsecutive(row, col, -1, -1) > 4 || // chéo chính
+            countConsecutive(row, col, 1, -1) + countConsecutive(row, col, -1, 1) > 4    // chéo phụ
+    );
+  }
+
+  function countConsecutive(row, col, dx, dy) {
+    let count = 0;
+    let i = 1;
+    while (true) {
+      const r = row + dx * i;
+      const c = col + dy * i;
+      if (r < 0 || r >= size || c < 0 || c >= size || board[r][c] !== currentPlayer) {
+        break;
+      }
+      count++;
+      i++;
+    }
+    return count;
+  }
+
+  createBoard();
+</script>
+</body>
+</html>
