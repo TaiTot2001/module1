@@ -2,9 +2,121 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Mobile Simulation</title>
 </head>
 <body>
+<script>
+  class Mobile {
+    constructor(name) {
+      this.name = name;
+      this.battery = 100;
+      this.isOn = false;
+      this.draft = "";
+      this.inbox = [];
+      this.sent = [];
+    }
 
+    checkPower() {
+      return this.isOn;
+    }
+
+    turnOn() {
+      this.isOn = true;
+      console.log(this.name + " đã bật.");
+    }
+
+    turnOff() {
+      this.isOn = false;
+      console.log(this.name + " đã tắt.");
+    }
+
+    charge() {
+      if (this.battery < 100) {
+        this.battery = 100;
+        console.log(this.name + " đã sạc đầy pin.");
+      }
+    }
+
+    useBattery() {
+      if (this.battery > 0) {
+        this.battery--;
+      }
+    }
+
+    composeMessage(msg) {
+      if (!this.isOn) {
+        console.log(this.name + " đang tắt. Không thể soạn tin.");
+        return;
+      }
+      this.draft = msg;
+      this.useBattery();
+    }
+
+    sendMessage(receiver) {
+      if (!this.isOn) {
+        console.log(this.name + " đang tắt. Không thể gửi tin.");
+        return;
+      }
+      if (this.draft === "") {
+        console.log(this.name + " chưa soạn tin.");
+        return;
+      }
+      receiver.receiveMessage(this.draft, this.name);
+      this.sent.push(this.draft);
+      console.log(this.name + " đã gửi: " + this.draft);
+      this.draft = "";
+      this.useBattery();
+    }
+
+    receiveMessage(msg, senderName) {
+      if (!this.isOn) return;
+      this.inbox.push(senderName + ": " + msg);
+      this.useBattery();
+    }
+
+    viewInbox() {
+      if (!this.isOn) {
+        console.log(this.name + " đang tắt. Không thể xem hộp thư.");
+        return;
+      }
+      console.log(this.name + " - Hộp thư đến:");
+      this.inbox.forEach((msg, i) => console.log((i+1) + ". " + msg));
+      this.useBattery();
+    }
+
+    viewSent() {
+      if (!this.isOn) {
+        console.log(this.name + " đang tắt. Không thể xem tin đã gửi.");
+        return;
+      }
+      console.log(this.name + " - Tin đã gửi:");
+      this.sent.forEach((msg, i) => console.log((i+1) + ". " + msg));
+      this.useBattery();
+    }
+
+    checkBattery() {
+      console.log(this.name + " - Pin: " + this.battery + "%");
+    }
+  }
+
+  // Khởi tạo đối tượng
+  let nokia = new Mobile("Nokia");
+  let iphone = new Mobile("iPhone");
+
+  // Bật điện thoại
+  nokia.turnOn();
+  iphone.turnOn();
+
+  // Nokia soạn và gửi tin cho iPhone
+  nokia.composeMessage("Chào iPhone, bạn khỏe không?");
+  nokia.sendMessage(iphone);
+
+  // iPhone kiểm tra hộp thư
+  iphone.viewInbox();
+
+  // Kiểm tra pin
+  nokia.checkBattery();
+  iphone.checkBattery();
+</script>
 </body>
 </html>
