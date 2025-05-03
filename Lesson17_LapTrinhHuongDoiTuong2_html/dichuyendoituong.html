@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Objects</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+<div id="game"></div>
+<script>
+  function Hero(image, top, left, size, speed){
+    this.image = image;
+    this.top = top;
+    this.left = left;
+    this.size = size;
+    this.speed = speed;
+
+    this.getHeroElement = function(){
+      return '<img width="'+ this.size + '"' +
+              ' height="'+ this.size + '"' +
+              ' src="' + this.image +'"' +
+              ' style="top: '+this.top+'px; left:'+this.left+'px;position:absolute;" />';
+    }
+
+    this.moveRight = function(){
+      this.left += this.speed;
+    }
+
+    this.moveLeft = function(){
+      this.left -= this.speed;
+    }
+
+    this.moveUp = function(){
+      this.top -= this.speed;
+    }
+
+    this.moveDown = function(){
+      this.top += this.speed;
+    }
+  }
+
+  // Thay đổi ảnh ở đây nếu bạn muốn
+  var hero = new Hero('mario.png', 20, 30, 100, 20);
+
+  let direction = 'right'; // Hướng bắt đầu
+
+  function start(){
+    const maxWidth = window.innerWidth - hero.size;
+    const maxHeight = window.innerHeight - hero.size;
+
+    // Di chuyển theo hướng hiện tại
+    switch(direction){
+      case 'right':
+        if(hero.left < maxWidth){
+          hero.moveRight();
+        } else {
+          direction = 'down';
+        }
+        break;
+      case 'down':
+        if(hero.top < maxHeight){
+          hero.moveDown();
+        } else {
+          direction = 'left';
+        }
+        break;
+      case 'left':
+        if(hero.left > 0){
+          hero.moveLeft();
+        } else {
+          direction = 'up';
+        }
+        break;
+      case 'up':
+        if(hero.top > 0){
+          hero.moveUp();
+        } else {
+          direction = 'right';
+        }
+        break;
+    }
+
+    document.getElementById('game').innerHTML = hero.getHeroElement();
+    setTimeout(start, 100);
+  }
+
+  start();
+</script>
+</body>
+</html>
