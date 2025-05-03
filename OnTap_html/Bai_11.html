@@ -142,21 +142,25 @@
                 } else if (+select === 1) {
                     let name = prompt("Nhập tên học viên:");
                     student[i].name = name;
+                    alert("Bạn đã sửa thành công")
                     displayStudent();
                     return;
                 } else if (+select === 2) {
                     let classId = prompt("Nhập lớp:");
                     student[i].classId = classId;
+                    alert("Bạn đã sửa thành công")
                     displayStudent();
                     return;
                 } else if (+select === 3) {
                     let email = prompt("Nhập email:");
                     student[i].email = email;
+                    alert("Bạn đã sửa thành công")
                     displayStudent();
                     return;
                 } else if (+select === 4) {
                     let dateOfBirth = prompt("Nhập ngày sinh (dd/mm/yyyy):");
                     student[i].dateOfBirth = dateOfBirth;
+                    alert("Bạn đã sửa thành công")
                     displayStudent();
                     return;
                 } else if (+select === 5) {
@@ -197,7 +201,8 @@
         }
         if (+checkId === null) {
             alert("Chương trình đã thoát !");
-        } else {
+        }
+        else {
             alert(`Mã sinh viên bạn tìm không tồn tại !`)
         }
     }
