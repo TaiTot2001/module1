@@ -103,7 +103,7 @@ function addBookAvailable() {
     for (let i = 0; i < book.length; i++) {
         if (book[i].id === id) {
             found = true;
-            let addQty = prompt("Nhập số quyển muốn thêm:");
+            let addQty = +prompt("Nhập số quyển muốn thêm:");
             if (isNaN(addQty) || Number(addQty) <= 0) {
                 alert("Số quyển thêm phải là số lớn hơn 0!");
                 return;
