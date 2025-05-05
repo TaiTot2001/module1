@@ -166,5 +166,5 @@ function showMostBook() {
         }
     }
 
-    alert(`Sách có số lượng nhiều nhất là:\nTên sách: ${mostBook.name}\nSố lượng: ${mostBook.quantity}`);
+    alert(`Sách có số lượng nhiều nhất là:\nTên sách: ${mostBook.name}\nSố lượng: ${mostBook.quantity}\nNăm sản xuất:${mostBook.yearOfPublication}`);
 }
