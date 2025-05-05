@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="styleCSS">
+    <h1>Quản lý sách</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Mã số sách</th>
+            <th>Tên sách</th>
+            <th>Năm xuất bản</th>
+            <th>Số quyển</th>
+            <th>Tình trạng</th>
+        </tr>
+        </thead>
+        <tbody id="bookList">
+        </tbody>
+    </table>
+    <br>
+
+    <button type="button" onclick="addBookAvailable()">Thêm sách đã có</button>
+    <button type="button" onclick="addBookNew()">Thêm sách mới</button>
+    <button type="button" onclick="borrowBook()">Mượn sách</button>
+    <button type="button" onclick="showMostBook()">Hiển thị sách nhiều nhất</button>
+
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
