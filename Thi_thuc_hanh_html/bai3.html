@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai3</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        table, th, td {
+            /*border: 1px solid white;*/
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px 15px;
+            font-family: Arial, sans-serif;
+            /*padding-left: 5px   ;*/
+            text-align: center;
+        }
+
+        .styleCSS {
+            border: 2px solid black;
+            padding: 10px;
+            width: fit-content;
+            justify-content: space-around;
+            /*margin: auto; !*hiển thị ra giữa trang web *!*/
+        }
+    </style>
+</head>
+<body>
+<div class="styleCSS">
+    <h1>Quản lý sách</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Mã số sách</th>
+            <th>Tên sách</th>
+            <th>Năm xuất bản</th>
+            <th>Số quyển</th>
+            <th>Tình trạng</th>
+        </tr>
+        </thead>
+        <tbody id="bookList">
+        </tbody>
+    </table>
+    <br>
+
+    <button type="button" onclick="addBookAvailable()">Thêm sách đã có</button>
+    <button type="button" onclick="addBookNew()">Thêm sách mới</button>
+    <button type="button" onclick="borrowBook()">Mượn sách</button>
+    <button type="button" onclick="showMostBook()">Hiển thị sách nhiều nhất</button>
+
+
+</div>
+<script>
+    class Book {
+        id;
+        name;
+        yearOfPublication;
+        quantity;
+        status;
+
+        constructor(id, name, yearOfPublication, quantity, status) {
+            this.id = id;
+            this.name = name;
+            this.yearOfPublication = yearOfPublication;
+            this.quantity = quantity;
+            this.status = status;
+        }
+    }
+
+    const book = [
+        new Book('12345', 'Toán', '2000', '3', 'true'),
+        new Book('23456', 'Văn', '1998', '4', 'true'),
+        new Book('37456', 'Tiếng Anh', '1999', '5', 'false')
+    ];
+
+    function displayBook() {
+        let tableBody = document.getElementById("bookList");
+        tableBody.innerHTML = "";
+        let row = '';
+        for (let i = 0; i < book.length; i++) {
+            console.log(book[i]);
+            row += `
+<tr>
+     <td>${book[i].id}</td>
+     <td>${book[i].name}</td>
+     <td>${book[i].yearOfPublication}</td>
+     <td>${book[i].quantity}</td>
+     <td>${book[i].status}</td>
+</tr>
+        `
+        }
+        tableBody.innerHTML = row;
+    }
+
+    displayBook();
+
+    function addBookNew() {
+        let id;
+        while (true) {
+            id = prompt("Nhập mã sách (5 ký tự, bắt đầu từ 1-5):");
+            if (!id) return; // nếu nhấn Cancel
+            if (/^[1-5][0-9]{4}$/.test(id)) {
+                if (book.find(b => b.id === id)) {
+                    alert("Mã sách đã tồn tại!");
+                } else {
+                    break;
+                }
+            } else {
+                alert("Mã sách không hợp lệ! Phải bắt đầu từ 1-5 và có 5 chữ số.");
+            }
+        }
+
+        let name;
+        while (true) {
+            name = prompt("Nhập tên sách:");
+            if (!name) {
+                alert("Tên sách không được để trống!");
+            } else {
+                break;
+            }
+        }
+
+        let year;
+        while (true) {
+            year = prompt("Nhập năm xuất bản (4 chữ số):");
+            if (!year) return;
+            if (/^\d{4}$/.test(year)) {
+                break;
+            } else {
+                alert("Năm xuất bản phải là 4 chữ số.");
+            }
+        }
+
+        let quantity;
+        while (true) {
+            quantity = prompt("Nhập số quyển > 0:");
+            if (quantity === null) return;
+            if (!isNaN(quantity) && Number(quantity) > 0) {
+                quantity = Number(quantity);
+                break;
+            } else {
+                alert("Số quyển không hợp lệ! Phải là số > 0.");
+            }
+        }
+
+        const newBook = new Book(id, name, Number(year), quantity, quantity > 0);
+        book.push(newBook);
+        displayBook();
+        alert("Thêm sách mới thành công!");
+    }
+
+    function addBookAvailable() {
+        let id = prompt("Nhập mã số sách muốn thêm số lượng:");
+        let found = false;
+
+        for (let i = 0; i < book.length; i++) {
+            if (book[i].id === id) {
+                found = true;
+                let addQty = prompt("Nhập số quyển muốn thêm:");
+                if (isNaN(addQty) || Number(addQty) <= 0) {
+                    alert("Số quyển thêm phải là số lớn hơn 0!");
+                    return;
+                }
+
+                book[i].quantity += Number(addQty);
+
+                if (book[i].quantity > 0) {
+                    book[i].status = true;
+                }
+
+                alert("Đã thêm sách thành công!");
+                break;
+            }
+        }
+
+        if (!found) {
+            alert("Không tìm thấy sách với mã số đã nhập!");
+        }
+
+        displayBook();
+    }
+
+    function borrowBook() {
+        let id = prompt("Nhập mã số sách muốn mượn:");
+        let found = false;
+
+        for (let i = 0; i < book.length; i++) {
+            if (book[i].id === id) {
+                found = true;
+                if (book[i].quantity > 0) {
+                    book[i].quantity--;
+
+                    // Nếu sau khi mượn mà số quyển = 0 thì trạng thái là false
+                    if (book[i].quantity === 0) {
+                        book[i].status = false;
+                    }
+
+                    alert("Mượn sách thành công!");
+                } else {
+                    alert("Sách đã hết! Không thể mượn.");
+                }
+                break;
+            }
+        }
+
+        if (!found) {
+            alert("Không tìm thấy mã sách.");
+        }
+
+        displayBook();
+    }
+
+
+</script>
+</body>
+</html>

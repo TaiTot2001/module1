@@ -99,6 +99,21 @@
 
     let productIndex = -1;
 
+    function addProduct(e) {
+        e.preventDefault();
+        const productName = document.getElementById('names').value;
+        if (productIndex !== -1) {
+            products[productIndex] = productName;
+            productIndex = -1;
+            document.getElementById('names').value = '';
+            document.getElementById('btnAdd').innerText = 'Add';
+        } else {
+            products.push(productName);
+            document.getElementById('names').value = '';
+        }
+        displayProduct();
+    }
+
     function handleEdit(index) {
         productIndex = index;
         const productName = products[index];
@@ -114,20 +129,7 @@
 
     displayProduct();
 
-    function addProduct(e) {
-        e.preventDefault();
-        const productName = document.getElementById('names').value;
-        if (productIndex !== -1) {
-            products[productIndex] = productName;
-            productIndex = -1;
-            document.getElementById('names').value = '';
-            document.getElementById('btnAdd').innerText = 'Add';
-        } else {
-            products.push(productName);
-            document.getElementById('names').value = '';
-        }
-        displayProduct();
-    }
+
 
 </script>
 </body>
