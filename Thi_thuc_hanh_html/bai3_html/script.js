@@ -139,7 +139,7 @@ function borrowBook() {
 
                 // Nếu sau khi mượn mà số quyển = 0 thì trạng thái là false
                 if (book[i].quantity === 0) {
-                    book[i].status = false;
+                    book[i].status = "ok";
                 }
 
                 alert("Mượn sách thành công!");
